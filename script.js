@@ -77,3 +77,8 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
+const logo = document.querySelector('#logo-img ')
+logo.addEventListener('click', () => {
+   window.location.href = '/'
+})
