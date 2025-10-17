@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "categoria": "web",
+    "id": "pizzaria-dh",
+    "titulo": "Pizzaria do DH",
+    "descricao": "Um site moderno e responsivo para a Pizzaria do DH, com cardápio interativo gerado via JavaScript, sistema de pedido com integração ao WhatsApp e SEO otimizado. O design foca em destacar o sabor artesanal e a identidade local da pizzaria.",
+    "technologies": ["HTML5", "CSS3", "JavaScript", "Netlify"],
+    "imagem": "https://media.discordapp.net/attachments/1168233227639603293/1428572579228024962/2025-10-16_233534.png?ex=68f2fd64&is=68f1abe4&hm=b531bcec8c85ff4a15add02bb2dfa5e1433c41dd57b1e6649bfab782e375b74d&=",
+    "client": "Pizzaria do DH",
+    "year": 2025,
+    "category": "Website comercial",
+    "link": "https://pizzariadodh.com.br/",
+    "author": "Mirae Tecnologia",
+    "color": "#c0392b"
+  }
+]
