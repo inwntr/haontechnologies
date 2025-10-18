@@ -176,3 +176,20 @@ closeModal.onclick = () => modal.style.display = "none";
 window.onclick = (event) => {
   if (event.target === modal) modal.style.display = "none";
 };
+
+const toggleBtn = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Carregar tema salvo
+if (localStorage.getItem('theme') === 'dark') {
+  body.classList.add('dark');
+  toggleBtn.textContent = '☀️';
+}
+
+// Alternar tema
+toggleBtn.addEventListener('click', () => {
+  body.classList.toggle('dark');
+  const isDark = body.classList.contains('dark');
+  toggleBtn.textContent = isDark ? '☀️' : '🌙';
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
