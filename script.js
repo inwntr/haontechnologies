@@ -1,3 +1,12 @@
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active'); // ativa/desativa o menu
+  });
+}
+
 const sectionsTitles = [
   { id: 'inicio', title: 'Haon – Início' },
   { id: 'sobre', title: 'Haon – Quem Somos' },
@@ -7,11 +16,68 @@ const sectionsTitles = [
   { id: 'portfolio', title: 'Haon – Portfólio' }
 ];
 
-// ------------------------------
-// MUDAR HEADER AO ROLAR
-// ------------------------------
-const header = document.querySelector('header');
+document.addEventListener("DOMContentLoaded", async () => {
+  const grid = document.getElementById("portfolioGrid");
+  const filtros = document.querySelectorAll(".filtro");
 
+  if (grid) {
+    try {
+      const res = await fetch("/projetos.json");
+      const projetos = await res.json();
+
+      function renderizar(categoria = "todos") {
+        grid.innerHTML = "";
+        const filtrados = categoria === "todos"
+          ? projetos
+          : projetos.filter(p => p.categoria === categoria);
+
+        filtrados.forEach((p, index) => {
+          const card = document.createElement("div");
+          card.classList.add("projeto-card");
+          card.style.animationDelay = `${index * 0.2}s`;
+          card.innerHTML = `
+            <img src="${p.imagem}" alt="${p.titulo}">
+            <div class="projeto-info">
+              <h3>${p.titulo}</h3>
+              <p>${p.descricao}</p>
+              <a href="${p.link}" target="_blank">Ver Projeto ↗</a>
+            </div>
+          `;
+          grid.appendChild(card);
+
+          // efeito de brilho dentro do render
+          card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--x', `${x}px`);
+            card.style.setProperty('--y', `${y}px`);
+          });
+          card.addEventListener('mouseleave', () => {
+            card.style.setProperty('--x', `50%`);
+            card.style.setProperty('--y', `50%`);
+          });
+        });
+      }
+
+      renderizar();
+
+      filtros.forEach(btn => {
+        btn.addEventListener("click", () => {
+          filtros.forEach(f => f.classList.remove("ativo"));
+          btn.classList.add("ativo");
+          renderizar(btn.dataset.cat);
+          grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+
+    } catch (err) {
+      grid.innerHTML = "<p>Erro ao carregar portfólio 😢</p>";
+    }
+  }
+});
+
+const header = document.querySelector('header');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
     header.classList.add('scrolled');
@@ -20,17 +86,13 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// ------------------------------
-// ANIMAÇÃO DAS SEÇÕES
-// ------------------------------
 const sections = document.querySelectorAll('.section, .hero-content, .card');
-
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.style.opacity = 1;
       entry.target.style.animation = 'fadeInUp 1s ease forwards';
-      observer.unobserve(entry.target); 
+      observer.unobserve(entry.target);
     }
   });
 }, { threshold: 0.2 });
@@ -77,54 +139,10 @@ window.addEventListener('scroll', () => {
   });
 });
 
-const logo = document.querySelector('#logo-img ')
+const logo = document.querySelector('#logo-img')
 logo.addEventListener('click', () => {
   window.location.href = '/'
 })
-
-document.addEventListener("DOMContentLoaded", async () => {
-  const grid = document.getElementById("portfolioGrid");
-  const filtros = document.querySelectorAll(".filtro");
-
-  try {
-    const res = await fetch("projetos.json");
-    const projetos = await res.json();
-
-    function renderizar(categoria = "todos") {
-      grid.innerHTML = "";
-      const filtrados =
-        categoria === "todos"
-          ? projetos
-          : projetos.filter(p => p.categoria === categoria);
-
-      filtrados.forEach(p => {
-        const card = document.createElement("div");
-        card.classList.add("projeto-card");
-        card.innerHTML = `
-          <img src="${p.imagem}" alt="${p.titulo}">
-          <div class="projeto-info">
-            <h3>${p.titulo}</h3>
-            <p>${p.descricao}</p>
-            <a href="${p.link}" target="_blank">Ver Projeto ↗</a>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-    }
-
-    renderizar();
-
-    filtros.forEach(btn => {
-      btn.addEventListener("click", () => {
-        filtros.forEach(f => f.classList.remove("ativo"));
-        btn.classList.add("ativo");
-        renderizar(btn.dataset.cat);
-      });
-    });
-  } catch (err) {
-    grid.innerHTML = "<p>Erro ao carregar portfólio 😢</p>";
-  }
-});
 
 const modal = document.getElementById("modal");
 const modalText = document.getElementById("modalText");
@@ -185,3 +203,41 @@ if (localStorage.getItem('theme') === 'dark') {
   body.classList.add('dark');
   toggleBtn.textContent = '☀️';
 }
+
+const hero = document.querySelector('.hero');
+window.addEventListener('scroll', () => {
+  const scroll = window.scrollY;
+  hero.style.backgroundPositionY = `${scroll * 0.3}px`; // efeito leve
+});
+
+// animação escalonada nos cards
+const cards = document.querySelectorAll('.card');
+cards.forEach((card, index) => {
+  card.style.animationDelay = `${index * 0.2}s`;
+  card.classList.add('animate');
+});
+
+document.querySelectorAll('.projeto-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--x', `${x}px`);
+    card.style.setProperty('--y', `${y}px`);
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.setProperty('--x', `50%`);
+    card.style.setProperty('--y', `50%`);
+  });
+});
+
+toggleBtn.addEventListener('click', () => {
+  body.classList.toggle('dark');
+  toggleBtn.textContent = body.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+  
+  // efeito de glow premium no toggle
+  toggleBtn.style.boxShadow = body.classList.contains('dark')
+    ? '0 0 25px var(--accent-hover)'
+    : '0 0 20px var(--accent)';
+});

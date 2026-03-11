@@ -10,7 +10,7 @@
   <meta name="keywords"
     content="Haon Technologies, Design Digital, Desenvolvimento Web, Projetos Personalizados, UI/UX, Websites, Inovação Digital" />
   <meta name="author" content="Haon Technologies" />
-  <link rel="icon" href="icon.png" type="image/png" />
+  <link rel="icon" href="imgs/icon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -30,53 +30,66 @@
 
 
 <body>
-  <!-- Cabeçalho -->
-  <header>
-    <div class="logo">
-      <img class="logo-img" id="logo-img" src="/favicon.png" alt="Haon Technologies">
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#como">Como Fazemos</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <div class="logo">
+    <img src="imgs/icon.png" class="logo-img" alt="Haon Technologies">
+  </div>
+
+  <nav class="nav-links">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#sobre">Quem Somos</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#portfolio">Portfólio</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+
+  <button class="menu-toggle">☰</button>
+</header>
 
   <!-- Seção inicial -->
-  <section id="inicio" class="hero">
-    <div class="hero-content">
-      <img class="img-logo" src="favicon.png" alt="Haon Technologies">
+  <section id="inicio" class="hero" aria-label="Seção inicial">
+    <div class="hero-content animate">
+      <img class="img-logo" src="imgs/favicon.png" alt="Logo Haon Technologies">
       <h1>Transformando Ideias em Tecnologia</h1>
       <p>
         Na <strong>Haon Technologies</strong>, cada projeto nasce da fusão entre criatividade e precisão técnica.
         Do design à montagem de PCs, criamos soluções que inspiram, conectam e impulsionam o futuro digital dos nossos
         clientes.
       </p>
-      <a href="#sobre" class="btn">Saiba Mais</a>
+      <a href="#sobre" class="btn" role="button" aria-label="Saiba mais sobre a Haon Technologies">Saiba Mais</a>
     </div>
   </section>
 
   <!-- Seção sobre -->
   <section id="sobre" class="section">
-    <h2>Quem Somos</h2>
-    <p>
-      <strong>Haon Technologies</strong> nasceu com o propósito de unir <strong>inovação, design e engenharia</strong>
-      para transformar o universo digital e tecnológico.
-      Nossa equipe é formada por profissionais apaixonados por criar experiências únicas — combinando criatividade,
-      técnica e estratégia em cada detalhe.
+    <div class="sobre-container">
+      <div class="sobre-texto">
+        <h2>Quem Somos</h2>
+        <p>
+          <strong>Haon Technologies</strong> nasceu com o propósito de unir <strong>inovação, design e
+            engenharia</strong>
+          para transformar o universo digital e tecnológico.
+          Nossa equipe é formada por profissionais apaixonados por criar experiências únicas — combinando criatividade,
+          técnica e estratégia em cada detalhe.
 
-      Atuamos nas áreas de <strong>Design Digital, Desenvolvimento Web e Soluções em Hardware</strong>, oferecendo desde
-      interfaces e sistemas personalizados até montagem e manutenção de computadores de alto desempenho.
-      Cada projeto é conduzido com foco em <strong>eficiência, estética e tecnologia de ponta</strong>, resultando em
-      soluções que inspiram confiança e impulsionam o crescimento dos nossos clientes.
+          Atuamos nas áreas de <strong>Design Digital, Desenvolvimento Web e Soluções em Hardware</strong>, oferecendo
+          desde
+          interfaces e sistemas personalizados até montagem e manutenção de computadores de alto desempenho.
+          Cada projeto é conduzido com foco em <strong>eficiência, estética e tecnologia de ponta</strong>, resultando
+          em
+          soluções que inspiram confiança e impulsionam o crescimento dos nossos clientes.
 
-      Mais do que uma empresa de tecnologia, somos um parceiro de inovação — transformando ideias em resultados reais,
-      com propósito, cuidado e excelência.
-    </p>
+          Mais do que uma empresa de tecnologia, somos um parceiro de inovação — transformando ideias em resultados
+          reais,
+          com propósito, cuidado e excelência.
+        </p>
+      </div>
+      <div class="sobre-img">
+        <img src="imgs/team.jpg" alt="Equipe Haon Technologies">
+      </div>
+    </div>
   </section>
 
   <!-- Seção serviços -->
@@ -85,23 +98,17 @@
     <div class="cards">
       <div class="card">
         <h3>Design Digital</h3>
-        <img
-          src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Design Digital">
+        <img src="imgs/designer.jpg" alt="Design Digital">
         <p>Criação de identidades visuais, interfaces e experiências encantadoras.</p>
       </div>
       <div class="card">
         <h3>Desenvolvimento Web</h3>
-        <img
-          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=815&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Desenvolvimento Web">
+        <img src="imgs/devweb.jpg" alt="Desenvolvimento Web">
         <p>Sites modernos, responsivos e feitos sob medida para cada cliente.</p>
       </div>
       <div class="card">
         <h3>Montagem & Manutenção de PCs</h3>
-        <img
-          src="https://plus.unsplash.com/premium_photo-1661494092444-f0a51a163482?q=80&w=2033&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Montagem e Manutenção de Computadores">
+        <img src="imgs/pcs.jpg" alt="Montagem e Manutenção de Computadores">
         <p>Serviços especializados em <strong>montagem, manutenção e upgrades</strong> de computadores, com foco em alto
           desempenho e estabilidade.</p>
       </div>
@@ -113,7 +120,7 @@
     <h2>Como Fazemos</h2>
     <p>
       Na <strong>Haon Technologies</strong>, cada projeto é construído a partir de um <strong>planejamento técnico e
-      criativo meticuloso</strong>, desenvolvido lado a lado com nossos clientes.
+        criativo meticuloso</strong>, desenvolvido lado a lado com nossos clientes.
       Acreditamos que unir <strong>design inteligente, engenharia de software e tecnologia de ponta</strong> é o que
       transforma ideias em experiências digitais autênticas e funcionais.
 
@@ -124,14 +131,14 @@
       também entregam resultados tangíveis.
 
       Já na área <strong>técnica</strong>, atuamos com <strong>montagem, otimização e manutenção de
-      computadores</strong>, oferecendo consultoria em hardware e soluções de alto desempenho.
+        computadores</strong>, oferecendo consultoria em hardware e soluções de alto desempenho.
       Trabalhamos com equipamentos e componentes de última geração, aplicando práticas avançadas de diagnóstico,
       refrigeração e configuração personalizada.
       Cada máquina é tratada como um projeto único, ajustada para garantir <strong>estabilidade, potência e
-      longevidade</strong> — seja para uso profissional, criativo ou corporativo.
+        longevidade</strong> — seja para uso profissional, criativo ou corporativo.
 
       Nosso processo como um todo é movido por <strong>inovação contínua, atenção aos detalhes e compromisso com a
-      excelência técnica</strong>.
+        excelência técnica</strong>.
       Mais do que entregar resultados, buscamos criar experiências tecnológicas que inspirem, funcionem e evoluam junto
       com nossos clientes.
     </p>
@@ -179,7 +186,10 @@
       <a href="#" id="contratoLink">Cláusulas Contratuais</a>
     </div>
 
-    <p class="footer-bottom">Haon Technologies © 2026 | <span class="haongroup">Grupo Haon</span>. Todos os direitos reservados.</p>
+    <p class="footer-bottom">
+      Haon Technologies © 2026 | <span class="haongroup"><strong>Haon Group</strong></span>. Todos os direitos reservados.
+      <img src="imgs/haongroup.png" alt="Haon Group" class="footer-icon">
+    </p>
   </footer>
 
   <div id="modal" class="modal">
