@@ -1,16 +1,16 @@
 [
   {
-    "categoria": "web",
-    "id": "pizzaria-dh",
-    "titulo": "Pizzaria do DH",
-    "descricao": "Um site moderno e responsivo para a Pizzaria do DH, com cardápio interativo gerado via JavaScript, sistema de pedido com integração ao WhatsApp e SEO otimizado. O design foca em destacar o sabor artesanal e a identidade local da pizzaria.",
+    "categoria": "Web",
+    "id": "forno-do-bairro",
+    "titulo": "Forno do Bairro",
+    "descricao": "Um site moderno e responsivo para a Forno do Bairro, com cardápio interativo gerado via JavaScript, sistema de pedido com integração ao WhatsApp e SEO otimizado. O design foca em destacar o sabor artesanal e a identidade local da pizzaria.",
     "technologies": ["HTML5", "CSS3", "JavaScript", "Netlify"],
-    "imagem": "https://media.discordapp.net/attachments/1168233227639603293/1428572579228024962/2025-10-16_233534.png?ex=68f4f7a4&is=68f3a624&hm=a5128e397c7dc9db71d41a84cb9f57f6e9bcd0470a0cc774a40e7a148d89b1c0&=&format=webp&quality=lossless",
-    "client": "Pizzaria do DH",
+    "imagem": "https://pizzariadodh.com.br/favicon.png",
+    "client": "Forno do Bairro",
     "year": 2025,
     "category": "Website comercial",
     "link": "https://pizzariadodh.com.br/",
-    "author": "Mirae Tecnologia",
+    "author": "Haon technologies",
     "color": "#c0392b"
   }
 ]

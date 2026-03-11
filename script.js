@@ -1,10 +1,10 @@
 const sectionsTitles = [
-  { id: 'inicio', title: 'Mirae – Início' },
-  { id: 'sobre', title: 'Mirae – Quem Somos' },
-  { id: 'servicos', title: 'Mirae – O Que Fazemos' },
-  { id: 'como', title: 'Mirae – Como Fazemos' },
-  { id: 'contato', title: 'Mirae – Contato' },
-  { id: 'portfolio', title: 'Mirae – Portfólio' }
+  { id: 'inicio', title: 'Haon – Início' },
+  { id: 'sobre', title: 'Haon – Quem Somos' },
+  { id: 'servicos', title: 'Haon – O Que Fazemos' },
+  { id: 'como', title: 'Haon – Como Fazemos' },
+  { id: 'contato', title: 'Haon – Contato' },
+  { id: 'portfolio', title: 'Haon – Portfólio' }
 ];
 
 // ------------------------------
@@ -133,20 +133,20 @@ const closeModal = document.querySelector(".close");
 const conteudo = {
   termos: `
       <h2>Termos de Serviço</h2>
-      <p>Ao utilizar os serviços da <strong>Mirae Tecnologia</strong>, você concorda com nossos termos de uso e condições. 
+      <p>Ao utilizar os serviços da <strong>Haon Technologies</strong>, você concorda com nossos termos de uso e condições. 
       Todos os projetos são cuidadosamente planejados, executados dentro de cronogramas definidos e respeitando o escopo acordado com o cliente, garantindo qualidade, eficiência e resultados mensuráveis.</p>
-      <p>O uso indevido de qualquer material, software, design ou conteúdo fornecido pela Mirae é estritamente proibido e está sujeito às leis de direitos autorais e propriedade intelectual vigentes, incluindo possíveis penalidades legais.</p>
+      <p>O uso indevido de qualquer material, software, design ou conteúdo fornecido pela Haon é estritamente proibido e está sujeito às leis de direitos autorais e propriedade intelectual vigentes, incluindo possíveis penalidades legais.</p>
       <p>Nosso compromisso é fornecer serviços de excelência, mantendo transparência, segurança e responsabilidade em todas as etapas do projeto.</p>
     `,
   privacidade: `
       <h2>Política de Privacidade</h2>
-      <p>A <strong>Mirae Tecnologia</strong> valoriza sua privacidade e protege rigorosamente todos os dados coletados através de formulários, e-mails ou qualquer canal de contato. Essas informações são utilizadas exclusivamente para fins comerciais, de suporte, comunicação direta e melhoria contínua dos nossos serviços.</p>
+      <p>A <strong>Haon Technologies</strong> valoriza sua privacidade e protege rigorosamente todos os dados coletados através de formulários, e-mails ou qualquer canal de contato. Essas informações são utilizadas exclusivamente para fins comerciais, de suporte, comunicação direta e melhoria contínua dos nossos serviços.</p>
       <p>Não compartilhamos dados pessoais com terceiros sem autorização expressa do usuário, exceto quando exigido por lei ou para garantir a execução adequada dos serviços contratados.</p>
-      <p>Adotamos medidas técnicas e administrativas para proteger suas informações contra acesso não autorizado, perda, alteração ou divulgação indevida, garantindo que cada interação com a Mirae seja segura e confiável.</p>
+      <p>Adotamos medidas técnicas e administrativas para proteger suas informações contra acesso não autorizado, perda, alteração ou divulgação indevida, garantindo que cada interação com a Haon seja segura e confiável.</p>
     `,
   contrato: `
       <h2>Cláusulas Contratuais</h2>
-      <p>Todos os contratos firmados com a <strong>Mirae Tecnologia</strong> seguem padrões técnicos, legais e éticos, assegurando a segurança, confidencialidade e integridade de todas as informações compartilhadas durante o desenvolvimento dos projetos.</p>
+      <p>Todos os contratos firmados com a <strong>Haon Technologies</strong> seguem padrões técnicos, legais e éticos, assegurando a segurança, confidencialidade e integridade de todas as informações compartilhadas durante o desenvolvimento dos projetos.</p>
       <p>As partes envolvidas comprometem-se a manter comunicação clara, colaboração ativa e transparência em todas as fases do projeto, desde o planejamento até a entrega final, garantindo que expectativas e prazos sejam atendidos com excelência.</p>
       <p>O contrato define responsabilidades, direitos e deveres de cada parte, garantindo que todas as soluções fornecidas sejam entregues de forma profissional, segura e alinhadas com os mais altos padrões de qualidade.</p>
     `
@@ -185,11 +185,3 @@ if (localStorage.getItem('theme') === 'dark') {
   body.classList.add('dark');
   toggleBtn.textContent = '☀️';
 }
-
-// Alternar tema
-toggleBtn.addEventListener('click', () => {
-  body.classList.toggle('dark');
-  const isDark = body.classList.contains('dark');
-  toggleBtn.textContent = isDark ? '☀️' : '🌙';
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-});
