@@ -402,7 +402,7 @@ footer {
   position: absolute;
   right: 0;       /* canto inferior direito */
   bottom: 0;
-  width: 100px;    /* ajusta o tamanho conforme necessário */
+  width: 15%;    /* ajusta o tamanho conforme necessário */
   height: auto;
   transform: translate(-10px, -5px); /* ajusta distância do canto */
   opacity: 0.8;   /* leve transparência para ficar discreto */
@@ -796,4 +796,10 @@ body.dark .projeto-card { box-shadow: 0 4px 15px rgba(0,0,0,0.45); }
   .sobre-img img {
     max-width: 90%; /* deixa margem lateral no mobile */
   }
+}
+
+nav a.active {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
 }

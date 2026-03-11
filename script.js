@@ -16,67 +16,6 @@ const sectionsTitles = [
   { id: 'portfolio', title: 'Haon – Portfólio' }
 ];
 
-document.addEventListener("DOMContentLoaded", async () => {
-  const grid = document.getElementById("portfolioGrid");
-  const filtros = document.querySelectorAll(".filtro");
-
-  if (grid) {
-    try {
-      const res = await fetch("/projetos.json");
-      const projetos = await res.json();
-
-      function renderizar(categoria = "todos") {
-        grid.innerHTML = "";
-        const filtrados = categoria === "todos"
-          ? projetos
-          : projetos.filter(p => p.categoria === categoria);
-
-        filtrados.forEach((p, index) => {
-          const card = document.createElement("div");
-          card.classList.add("projeto-card");
-          card.style.animationDelay = `${index * 0.2}s`;
-          card.innerHTML = `
-            <img src="${p.imagem}" alt="${p.titulo}">
-            <div class="projeto-info">
-              <h3>${p.titulo}</h3>
-              <p>${p.descricao}</p>
-              <a href="${p.link}" target="_blank">Ver Projeto ↗</a>
-            </div>
-          `;
-          grid.appendChild(card);
-
-          // efeito de brilho dentro do render
-          card.addEventListener('mousemove', e => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            card.style.setProperty('--x', `${x}px`);
-            card.style.setProperty('--y', `${y}px`);
-          });
-          card.addEventListener('mouseleave', () => {
-            card.style.setProperty('--x', `50%`);
-            card.style.setProperty('--y', `50%`);
-          });
-        });
-      }
-
-      renderizar();
-
-      filtros.forEach(btn => {
-        btn.addEventListener("click", () => {
-          filtros.forEach(f => f.classList.remove("ativo"));
-          btn.classList.add("ativo");
-          renderizar(btn.dataset.cat);
-          grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-      });
-
-    } catch (err) {
-      grid.innerHTML = "<p>Erro ao carregar portfólio 😢</p>";
-    }
-  }
-});
-
 const header = document.querySelector('header');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
@@ -139,78 +78,78 @@ window.addEventListener('scroll', () => {
   });
 });
 
-const logo = document.querySelector('#logo-img')
+document.addEventListener("DOMContentLoaded", async () => {
+  const grid = document.getElementById("portfolioGrid");
+  const filtros = document.querySelectorAll(".filtro");
+
+  if (grid) {
+    try {
+      const res = await fetch("/projetos.json");
+      const projetos = await res.json();
+
+      function renderizar(categoria = "todos") {
+        grid.innerHTML = "";
+        const filtrados = categoria === "todos"
+          ? projetos
+          : projetos.filter(p => p.categoria === categoria);
+
+        filtrados.forEach((p, index) => {
+          const card = document.createElement("div");
+          card.classList.add("projeto-card");
+          card.style.animationDelay = `${index * 0.2}s`;
+          card.innerHTML = `
+            <img src="${p.imagem}" alt="${p.titulo}">
+            <div class="projeto-info">
+              <h3>${p.titulo}</h3>
+              <p>${p.descricao}</p>
+              <a href="${p.link}" target="_blank">Ver Projeto ↗</a>
+            </div>
+          `;
+          grid.appendChild(card);
+
+          // efeito de brilho dentro do render
+          card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--x', `${x}px`);
+            card.style.setProperty('--y', `${y}px`);
+          });
+          card.addEventListener('mouseleave', () => {
+            card.style.setProperty('--x', `50%`);
+            card.style.setProperty('--y', `50%`);
+          });
+        });
+      }
+
+      renderizar();
+
+      filtros.forEach(btn => {
+        btn.addEventListener("click", () => {
+          filtros.forEach(f => f.classList.remove("ativo"));
+          btn.classList.add("ativo");
+          renderizar(btn.dataset.cat);
+          grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+
+    } catch (err) {
+      grid.innerHTML = "<p>Erro ao carregar portfólio 😢</p>";
+    }
+  }
+});
+
+const logo = document.querySelector('.logo-img')
 logo.addEventListener('click', () => {
   window.location.href = '/'
 })
 
-const modal = document.getElementById("modal");
-const modalText = document.getElementById("modalText");
-const closeModal = document.querySelector(".close");
-
-const conteudo = {
-  termos: `
-      <h2>Termos de Serviço</h2>
-      <p>Ao utilizar os serviços da <strong>Haon Technologies</strong>, você concorda com nossos termos de uso e condições. 
-      Todos os projetos são cuidadosamente planejados, executados dentro de cronogramas definidos e respeitando o escopo acordado com o cliente, garantindo qualidade, eficiência e resultados mensuráveis.</p>
-      <p>O uso indevido de qualquer material, software, design ou conteúdo fornecido pela Haon é estritamente proibido e está sujeito às leis de direitos autorais e propriedade intelectual vigentes, incluindo possíveis penalidades legais.</p>
-      <p>Nosso compromisso é fornecer serviços de excelência, mantendo transparência, segurança e responsabilidade em todas as etapas do projeto.</p>
-    `,
-  privacidade: `
-      <h2>Política de Privacidade</h2>
-      <p>A <strong>Haon Technologies</strong> valoriza sua privacidade e protege rigorosamente todos os dados coletados através de formulários, e-mails ou qualquer canal de contato. Essas informações são utilizadas exclusivamente para fins comerciais, de suporte, comunicação direta e melhoria contínua dos nossos serviços.</p>
-      <p>Não compartilhamos dados pessoais com terceiros sem autorização expressa do usuário, exceto quando exigido por lei ou para garantir a execução adequada dos serviços contratados.</p>
-      <p>Adotamos medidas técnicas e administrativas para proteger suas informações contra acesso não autorizado, perda, alteração ou divulgação indevida, garantindo que cada interação com a Haon seja segura e confiável.</p>
-    `,
-  contrato: `
-      <h2>Cláusulas Contratuais</h2>
-      <p>Todos os contratos firmados com a <strong>Haon Technologies</strong> seguem padrões técnicos, legais e éticos, assegurando a segurança, confidencialidade e integridade de todas as informações compartilhadas durante o desenvolvimento dos projetos.</p>
-      <p>As partes envolvidas comprometem-se a manter comunicação clara, colaboração ativa e transparência em todas as fases do projeto, desde o planejamento até a entrega final, garantindo que expectativas e prazos sejam atendidos com excelência.</p>
-      <p>O contrato define responsabilidades, direitos e deveres de cada parte, garantindo que todas as soluções fornecidas sejam entregues de forma profissional, segura e alinhadas com os mais altos padrões de qualidade.</p>
-    `
-};
-
-document.getElementById("termosLink").addEventListener("click", (e) => {
-  e.preventDefault();
-  abrirModal(conteudo.termos);
-});
-
-document.getElementById("privacidadeLink").addEventListener("click", (e) => {
-  e.preventDefault();
-  abrirModal(conteudo.privacidade);
-});
-
-document.getElementById("contratoLink").addEventListener("click", (e) => {
-  e.preventDefault();
-  abrirModal(conteudo.contrato);
-});
-
-function abrirModal(texto) {
-  modalText.innerHTML = texto;
-  modal.style.display = "flex";
-}
-
-closeModal.onclick = () => modal.style.display = "none";
-window.onclick = (event) => {
-  if (event.target === modal) modal.style.display = "none";
-};
-
-const toggleBtn = document.getElementById('theme-toggle');
-const body = document.body;
-
-// Carregar tema salvo
-if (localStorage.getItem('theme') === 'dark') {
-  body.classList.add('dark');
-  toggleBtn.textContent = '☀️';
-}
-
 const hero = document.querySelector('.hero');
 window.addEventListener('scroll', () => {
   const scroll = window.scrollY;
-  hero.style.backgroundPositionY = `${scroll * 0.3}px`; // efeito leve
+  hero.style.backgroundPositionY = `${scroll * 0.3}px`;
 });
 
-// animação escalonada nos cards
 const cards = document.querySelectorAll('.card');
 cards.forEach((card, index) => {
   card.style.animationDelay = `${index * 0.2}s`;
@@ -231,13 +170,68 @@ document.querySelectorAll('.projeto-card').forEach(card => {
   });
 });
 
-toggleBtn.addEventListener('click', () => {
-  body.classList.toggle('dark');
-  toggleBtn.textContent = body.classList.contains('dark') ? '☀️' : '🌙';
-  localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
-  
-  // efeito de glow premium no toggle
-  toggleBtn.style.boxShadow = body.classList.contains('dark')
-    ? '0 0 25px var(--accent-hover)'
-    : '0 0 20px var(--accent)';
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("modal");
+  const modalText = document.getElementById("modalText");
+  const closeModal = document.querySelector(".close");
+
+  const conteudo = {
+    termos: `
+      <h2>Termos de Serviço</h2>
+      <p>Ao utilizar os serviços da <strong>Haon Technologies</strong>, você concorda com nossos termos de uso e condições. 
+      Todos os projetos são cuidadosamente planejados, executados dentro de cronogramas definidos e respeitando o escopo acordado com o cliente, garantindo qualidade, eficiência e resultados mensuráveis.</p>
+      <p>O uso indevido de qualquer material, software, design ou conteúdo fornecido pela Haon é estritamente proibido e está sujeito às leis de direitos autorais e propriedade intelectual vigentes, incluindo possíveis penalidades legais.</p>
+      <p>Nosso compromisso é fornecer serviços de excelência, mantendo transparência, segurança e responsabilidade em todas as etapas do projeto.</p>
+    `,
+    privacidade: `
+      <h2>Política de Privacidade</h2>
+      <p>A <strong>Haon Technologies</strong> valoriza sua privacidade e protege rigorosamente todos os dados coletados através de formulários, e-mails ou qualquer canal de contato. Essas informações são utilizadas exclusivamente para fins comerciais, de suporte, comunicação direta e melhoria contínua dos nossos serviços.</p>
+      <p>Não compartilhamos dados pessoais com terceiros sem autorização expressa do usuário, exceto quando exigido por lei ou para garantir a execução adequada dos serviços contratados.</p>
+      <p>Adotamos medidas técnicas e administrativas para proteger suas informações contra acesso não autorizado, perda, alteração ou divulgação indevida, garantindo que cada interação com a Haon seja segura e confiável.</p>
+    `,
+    contrato: `
+      <h2>Cláusulas Contratuais</h2>
+      <p>Todos os contratos firmados com a <strong>Haon Technologies</strong> seguem padrões técnicos, legais e éticos, assegurando a segurança, confidencialidade e integridade de todas as informações compartilhadas durante o desenvolvimento dos projetos.</p>
+      <p>As partes envolvidas comprometem-se a manter comunicação clara, colaboração ativa e transparência em todas as fases do projeto, desde o planejamento até a entrega final, garantindo que expectativas e prazos sejam atendidos com excelência.</p>
+      <p>O contrato define responsabilidades, direitos e deveres de cada parte, garantindo que todas as soluções fornecidas sejam entregues de forma profissional, segura e alinhadas com os mais altos padrões de qualidade.</p>
+    `
+  };
+
+  document.getElementById("termosLink").addEventListener("click", (e) => {
+    e.preventDefault();
+    abrirModal(conteudo.termos);
+  });
+
+  document.getElementById("privacidadeLink").addEventListener("click", (e) => {
+    e.preventDefault();
+    abrirModal(conteudo.privacidade);
+  });
+
+  document.getElementById("contratoLink").addEventListener("click", (e) => {
+    e.preventDefault();
+    abrirModal(conteudo.contrato);
+  });
+
+function abrirModal(texto) {
+  modalText.innerHTML = texto;
+  modal.style.display = "flex";
+}
+
+function fecharModal() {
+  modal.style.display = "none";
+}
+
+closeModal.onclick = fecharModal;
+
+window.onclick = (event) => {
+  if (event.target === modal) {
+    fecharModal();
+  }
+};
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    fecharModal();
+  }
 });
+})
