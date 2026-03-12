@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             <div class="projeto-info">
               <h3>${p.titulo}</h3>
               <p>${p.descricao}</p>
-              <a href="${p.link}" target="_blank">Ver Projeto ↗</a>
+              <a href="${p.link}" target="_blank">View Project↗</a>
             </div>
           `;
           grid.appendChild(card);
@@ -235,5 +235,6 @@ document.addEventListener("keydown", (e) => {
 });
 
 })
+
 
 
