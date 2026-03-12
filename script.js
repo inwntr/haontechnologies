@@ -174,26 +174,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalText = document.getElementById("modalText");
   const closeModal = document.querySelector(".close");
 
-  const conteudo = {
+    const conteudo = {
     termos: `
-      <h2>Termos de Serviço</h2>
-      <p>Ao utilizar os serviços da <strong>Haon Technologies</strong>, você concorda com nossos termos de uso e condições. 
-      Todos os projetos são cuidadosamente planejados, executados dentro de cronogramas definidos e respeitando o escopo acordado com o cliente, garantindo qualidade, eficiência e resultados mensuráveis.</p>
-      <p>O uso indevido de qualquer material, software, design ou conteúdo fornecido pela Haon é estritamente proibido e está sujeito às leis de direitos autorais e propriedade intelectual vigentes, incluindo possíveis penalidades legais.</p>
-      <p>Nosso compromisso é fornecer serviços de excelência, mantendo transparência, segurança e responsabilidade em todas as etapas do projeto.</p>
-    `,
+    <h2>Terms of Service</h2>
+    <p>By using the services of <strong>Haon Technologies</strong>, you agree to our terms of use and conditions.
+    All projects are carefully planned, executed within defined timelines, and aligned with the agreed-upon scope with the client, ensuring quality, efficiency, and measurable results.</p>
+    <p>Any misuse of materials, software, designs, or content provided by Haon is strictly prohibited and subject to current copyright and intellectual property laws, including potential legal penalties.</p>
+    <p>Our commitment is to deliver services with excellence, maintaining transparency, security, and accountability at every stage of the project.</p>
+  `,
     privacidade: `
-      <h2>Política de Privacidade</h2>
-      <p>A <strong>Haon Technologies</strong> valoriza sua privacidade e protege rigorosamente todos os dados coletados através de formulários, e-mails ou qualquer canal de contato. Essas informações são utilizadas exclusivamente para fins comerciais, de suporte, comunicação direta e melhoria contínua dos nossos serviços.</p>
-      <p>Não compartilhamos dados pessoais com terceiros sem autorização expressa do usuário, exceto quando exigido por lei ou para garantir a execução adequada dos serviços contratados.</p>
-      <p>Adotamos medidas técnicas e administrativas para proteger suas informações contra acesso não autorizado, perda, alteração ou divulgação indevida, garantindo que cada interação com a Haon seja segura e confiável.</p>
-    `,
+    <h2>Privacy Policy</h2>
+    <p><strong>Haon Technologies</strong> values your privacy and rigorously protects all data collected through forms, emails, or any contact channels. This information is used exclusively for business purposes, support, direct communication, and continuous improvement of our services.</p>
+    <p>We do not share personal data with third parties without the user's explicit consent, except when required by law or to ensure proper execution of contracted services.</p>
+    <p>We adopt technical and administrative measures to protect your information against unauthorized access, loss, alteration, or improper disclosure, ensuring every interaction with Haon is secure and trustworthy.</p>
+  `,
     contrato: `
-      <h2>Cláusulas Contratuais</h2>
-      <p>Todos os contratos firmados com a <strong>Haon Technologies</strong> seguem padrões técnicos, legais e éticos, assegurando a segurança, confidencialidade e integridade de todas as informações compartilhadas durante o desenvolvimento dos projetos.</p>
-      <p>As partes envolvidas comprometem-se a manter comunicação clara, colaboração ativa e transparência em todas as fases do projeto, desde o planejamento até a entrega final, garantindo que expectativas e prazos sejam atendidos com excelência.</p>
-      <p>O contrato define responsabilidades, direitos e deveres de cada parte, garantindo que todas as soluções fornecidas sejam entregues de forma profissional, segura e alinhadas com os mais altos padrões de qualidade.</p>
-    `
+    <h2>Contract Clauses</h2>
+    <p>All contracts entered into with <strong>Haon Technologies</strong> follow technical, legal, and ethical standards, ensuring the security, confidentiality, and integrity of all information shared during project development.</p>
+    <p>All parties involved commit to clear communication, active collaboration, and transparency throughout all phases of the project, from planning to final delivery, ensuring expectations and deadlines are met with excellence.</p>
+    <p>The contract defines responsibilities, rights, and duties of each party, ensuring that all provided solutions are delivered professionally, securely, and in line with the highest quality standards.</p>
+  `
   };
 
   document.getElementById("termosLink").addEventListener("click", (e) => {
@@ -235,3 +235,4 @@ document.addEventListener("keydown", (e) => {
 });
 
 })
+
