@@ -86,9 +86,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       const res = await fetch("/projetos.json");
       const projetos = await res.json();
 
-      function renderizar(categoria = "todos") {
+      function renderizar(categoria = "Todos") {
         grid.innerHTML = "";
-        const filtrados = categoria === "todos"
+        const filtrados = categoria === "Todos"
           ? projetos
           : projetos.filter(p => p.categoria === categoria);
 
@@ -235,4 +235,5 @@ document.addEventListener("keydown", (e) => {
 });
 
 })
+
 
