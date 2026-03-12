@@ -8,11 +8,10 @@ if (menuToggle && navLinks) {
 }
 
 const sectionsTitles = [
-  { id: 'inicio', title: 'Haon – Início' },
-  { id: 'sobre', title: 'Haon – Quem Somos' },
-  { id: 'servicos', title: 'Haon – O Que Fazemos' },
-  { id: 'como', title: 'Haon – Como Fazemos' },
-  { id: 'contato', title: 'Haon – Contato' },
+  { id: 'inicio', title: 'Haon – Home' },
+  { id: 'sobre', title: 'Haon – About' },
+  { id: 'servicos', title: 'Haon – Services' },
+  { id: 'como', title: 'Haon – How We Work' },
   { id: 'portfolio', title: 'Haon – Portfólio' }
 ];
 
@@ -234,4 +233,5 @@ document.addEventListener("keydown", (e) => {
     fecharModal();
   }
 });
+
 })
