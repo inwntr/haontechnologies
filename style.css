@@ -406,6 +406,7 @@ footer {
   height: auto;
   transform: translate(-10px, -5px); /* ajusta distância do canto */
   opacity: 0.8;   /* leve transparência para ficar discreto */
+  cursor: pointer;
 }
 
 .footer-bottom span {
