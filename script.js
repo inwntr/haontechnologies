@@ -1,5 +1,6 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
+const haongroup = document.querySelector('haongroupimg');
 
 if (menuToggle && navLinks) {
   menuToggle.addEventListener('click', () => {
@@ -232,9 +233,9 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     fecharModal();
   }
-});
-
+ });
 })
 
-
-
+haongroup.addEventListener('click', () => {
+    window.open('https://haongroup.netlify.app/', '_blank');
+});
