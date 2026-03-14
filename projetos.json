@@ -12,5 +12,19 @@
     "link": "https://pizzariadodh.com.br/",
     "author": "Haon technologies",
     "color": "#c0392b"
+  },
+  {
+    "categoria": "Web",
+    "id": "trucks-registers",
+    "titulo": "Registros de veiculos",
+    "descricao": "Truck Registry System – A web app for managing truck entries, exits, and load tracking in real time.",
+    "technologies": ["HTML5", "CSS3", "JavaScript", "Netlify", "mongodb"],
+    "imagem": "https://media.discordapp.net/attachments/1430562328700784744/1482477432467361977/Screenshot_1.png?ex=69b71832&is=69b5c6b2&hm=04b8834a1f3865188586e4b52d6718207a7a586e42693a5ddb44dd760569c154&=&format=webp&quality=lossless&width=966&height=544",
+    "client": "SPE Aroeiras",
+    "year": 2026,
+    "category": "Website comercial",
+    "link": null,
+    "author": "Haon technologies",
+    "color": "#c0392b"
   }
 ]
