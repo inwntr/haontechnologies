@@ -1,33 +1,33 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Haon Technologies</title>
+
   <meta name="description"
-    content="Haon Technologies: Soluções digitais inovadoras, Design Digital, Desenvolvimento Web e Projetos Personalizados. Transformamos ideias em experiências únicas." />
+    content="Haon Technologies: Innovative digital solutions, Digital Design, Web Development and Custom Projects." />
+
   <meta name="keywords"
-    content="Haon Technologies, Design Digital, Desenvolvimento Web, Projetos Personalizados, UI/UX, Websites, Inovação Digital" />
+    content="Haon Technologies, Digital Design, Web Development, Custom Projects, UI/UX, Websites, Innovation" />
+
   <meta name="author" content="Haon Technologies" />
   <link rel="icon" href="imgs/icon.png" type="image/png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
+
   <meta property="og:title" content="Haon Technologies" />
-  <meta property="og:description"
-    content="Soluções digitais inovadoras em Design Digital, Desenvolvimento Web e Projetos Personalizados." />
+  <meta property="og:description" content="Innovative digital solutions in Digital Design and Web Development." />
   <meta property="og:image" content="preview.png" />
   <meta property="og:url" content="https://www.haontechnologies.com.br" />
   <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Haon Technologies" />
-  <meta name="twitter:description"
-    content="Soluções digitais inovadoras em Design Digital, Desenvolvimento Web e Projetos Personalizados." />
-  <meta name="twitter:image" content="preview.png" />
-</head>
 
+</head>
 
 <body>
   <header>
@@ -37,148 +37,133 @@
 
     <nav class="nav-links">
       <ul>
-        <li><a class="active" href="#inicio">Home</a></li>
-        <li><a href="#sobre">About</a></li>
-        <li><a href="#servicos">Services</a></li>
-        <li><a href="#como">How We Work</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a class="active" href="#inicio" data-i18n="nav_home">Home</a></li>
+        <li><a href="#sobre" data-i18n="nav_about">About</a></li>
+        <li><a href="#servicos" data-i18n="nav_services">Services</a></li>
+        <li><a href="#como" data-i18n="nav_how">How We Work</a></li>
+        <li><a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a></li>
       </ul>
     </nav>
+
+    <!-- BOTÃO DE IDIOMA -->
+    <div class="lang-dropdown">
+      <button id="langBtn">🌐</button>
+
+      <div class="lang-menu" id="langMenu">
+        <div onclick="setLanguage('en')">
+          <img src="imgs/us.png" alt="EN"> English
+        </div>
+
+        <div onclick="setLanguage('pt')">
+          <img src="imgs/br.webp" alt="PT"> Português
+        </div>
+      </div>
+    </div>
 
     <button class="menu-toggle">☰</button>
   </header>
 
-  <!-- Seção inicial -->
-  <section id="inicio" class="hero" aria-label="Home Section">
+  <!-- Hero -->
+  <section id="inicio" class="hero">
     <div class="hero-content animate">
       <img class="img-logo" src="imgs/favicon.png" alt="Haon Technologies Logo">
-      <h1>Turning Ideas into Technology</h1>
-      <p>
-        At <strong>Haon Technologies</strong>, every project is born from the fusion of creativity and technical
-        precision.
-        From design to PC assembly, we create solutions that inspire, connect, and drive the digital future of our
-        clients.
+      <h1 data-i18n="hero_title">Turning Ideas into Technology</h1>
+
+      <p data-i18n="hero_text">
+        At Haon Technologies, every project is born from the fusion of creativity and technical precision.
       </p>
-      <a href="#sobre" class="btn" role="button" aria-label="Learn more about Haon Technologies">Learn More</a>
+
+      <a href="#sobre" class="btn" data-i18n="learn_more">Learn More</a>
     </div>
   </section>
 
-  <!-- Seção sobre -->
+  <!-- Sobre -->
   <section id="sobre" class="section">
     <div class="sobre-container">
       <div class="sobre-texto">
-        <h2>About Us</h2>
-        <p>
-          <strong>Haon Technologies</strong> was founded with the purpose of uniting <strong>innovation, design, and
-            engineering</strong>
-          to transform the digital and technological world. Our team is composed of professionals passionate about
-          creating unique experiences — combining creativity,
-          technical skill, and strategy in every detail.
+        <h2 data-i18n="about_title">About Us</h2>
 
-          We operate in <strong>Digital Design, Web Development, and Hardware Solutions</strong>, offering everything
-          from
-          custom interfaces and systems to high-performance PC assembly and maintenance. Each project is driven by a
-          focus on <strong>efficiency, aesthetics, and cutting-edge technology</strong>,
-          resulting in solutions that inspire confidence and drive our clients’ growth.
-
-          More than just a technology company, we are an innovation partner — turning ideas into real results,
-          with purpose, care, and excellence.
+        <p data-i18n="about_text">
+          Haon Technologies was founded with the purpose of uniting innovation, design, and engineering.
         </p>
       </div>
+
       <div class="sobre-img">
         <img src="imgs/team.jpg" alt="Equipe Haon Technologies">
       </div>
     </div>
   </section>
 
-  <!-- Seção serviços -->
+  <!-- Serviços -->
   <section id="servicos" class="section">
-    <h2>What We Do</h2>
+    <h2 data-i18n="services_title">What We Do</h2>
+
     <div class="cards">
+
       <div class="card">
-        <h3>Digital Design</h3>
-        <img src="imgs/designer.jpg" alt="Digital Design">
-        <p>Creating visual identities, interfaces, and captivating user experiences.</p>
+        <h3 data-i18n="service_design">Digital Design</h3>
+        <img src="imgs/designer.jpg">
+        <p data-i18n="service_design_desc">Creating visual identities and experiences.</p>
       </div>
+
       <div class="card">
-        <h3>Web Development</h3>
-        <img src="imgs/devweb.jpg" alt="Web Development">
-        <p>Modern, responsive websites tailored to each client’s needs.</p>
+        <h3 data-i18n="service_web">Web Development</h3>
+        <img src="imgs/devweb.jpg">
+        <p data-i18n="service_web_desc">Modern responsive websites.</p>
       </div>
+
       <div class="card">
-        <h3>PC Assembly & Maintenance</h3>
-        <img src="imgs/pcs.jpg" alt="PC Assembly and Maintenance">
-        <p>Specialized services in <strong>PC assembly, maintenance, and upgrades</strong>, focusing on high performance
-          and stability.</p>
+        <h3 data-i18n="service_discord">Discord Bots & Websites</h3>
+        <img src="imgs/discord.webp">
+        <p data-i18n="service_discord_desc">Automation and server management tools.</p>
       </div>
-      <div class="card">
-        <h3>Discord bots & websites</h3>
-        <img src="imgs/discord.webp" alt="Discord bots & websites">
-        <p>Creating bots and websites to facilitate and automate the <strong>organization and administration</strong> of servers.</p>
-      </div>
+
     </div>
   </section>
 
-  <!-- Seção como fazemos -->
+  <!-- Como -->
   <section id="como" class="section">
-    <h2>How We Work</h2>
-    <p>
-      At <strong>Haon Technologies</strong>, every project is built on <strong>meticulous technical and creative
-        planning</strong>, developed hand-in-hand with our clients.
-      We believe that combining <strong>smart design, software engineering, and cutting-edge technology</strong> is what
-      turns ideas into authentic, functional digital experiences.
+    <h2 data-i18n="how_title">How We Work</h2>
 
-      In the <strong>web</strong> segment, we create modern, responsive interfaces optimized for performance.
-      Each website is designed with a focus on <strong>usability, speed, and solid architecture</strong>, ensuring an
-      efficient and scalable digital presence.
-      Our goal is to align aesthetics with purpose, delivering solutions that not only look great but also provide
-      tangible results.
-
-      In the <strong>technical</strong> area, we handle <strong>PC assembly, optimization, and maintenance</strong>,
-      providing hardware consulting and high-performance solutions.
-      We work with state-of-the-art equipment and components, applying advanced practices in diagnostics, cooling, and
-      custom configuration.
-      Each machine is treated as a unique project, adjusted to ensure <strong>stability, power, and
-        longevity</strong>—whether for professional, creative, or corporate use.
-
-      Our overall process is driven by <strong>continuous innovation, attention to detail, and commitment to technical
-        excellence</strong>.
-      More than delivering results, we aim to create technological experiences that inspire, perform, and evolve
-      alongside our clients.
+    <p data-i18n="how_text">
+      Every project is built with technical and creative planning, focusing on performance and innovation.
     </p>
   </section>
 
+  <!-- Portfolio -->
   <section id="portfolio" class="section">
-    <h2>Portfolio</h2>
-    <p>Check out some of the projects developed by <strong>Haon Technologies</strong>, combining creativity, technical
-      skill, and innovation.</p>
+    <h2 data-i18n="portfolio_title">Portfolio</h2>
+
+    <p data-i18n="portfolio_text">
+      Check out some of our projects combining creativity and innovation.
+    </p>
 
     <div class="filtros">
-      <button class="filtro ativo" data-cat="Todos">All</button>
+      <button class="filtro ativo" data-cat="Todos" data-i18n="filter_all">All</button>
       <button class="filtro" data-cat="Web">Web</button>
       <button class="filtro" data-cat="Design">Design</button>
-      <button class="filtro" data-cat="Tecnico">Technical</button>
+      <button class="filtro" data-cat="Tecnico" data-i18n="filter_technical">Technical</button>
     </div>
 
     <div class="portfolio-grid" id="portfolioGrid"></div>
   </section>
 
-  <!-- Rodapé -->
+  <!-- Footer -->
   <footer>
     <div class="footer-container">
       <div class="footer-section">
-        <h3>Sales Support</h3>
+        <h3 data-i18n="sales_support">Sales Support</h3>
         <a href="https://wa.me/5599999999999" target="_blank">WhatsApp</a><br>
         <a href="mailto:contato@haontechnologies.com.br">contato@haontechnologies.com.br</a>
       </div>
 
       <div class="footer-section">
-        <h3>Technical Support</h3>
+        <h3 data-i18n="technical_support">Technical Support</h3>
         <a href="https://haontechnologies.com.br/suporte" target="_blank">haontechnologies.com.br/support</a>
       </div>
 
       <div class="footer-section">
-        <h3>Project Support</h3>
+        <h3 data-i18n="project_support">Project Support</h3>
         <a href="mailto:projetos@haontechnologies.com.br">projects@haontechnologies.com.br</a>
       </div>
     </div>
@@ -204,11 +189,6 @@
       <div id="modalText"></div>
     </div>
   </div>
-
-  <!-- Card WhatsApp flutuante -->
-  <a href="https://wa.me/5599999999999" target="_blank" class="whatsapp-card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-  </a>
 
   <script src="script.js"></script>
 

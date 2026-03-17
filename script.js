@@ -1,6 +1,6 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
-const haongroup = document.querySelector('haongroupimg');
+const haongroup = document.querySelector('#haongroupimg');
 
 if (menuToggle && navLinks) {
   menuToggle.addEventListener('click', () => {
@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalText = document.getElementById("modalText");
   const closeModal = document.querySelector(".close");
 
-    const conteudo = {
+  const conteudo = {
     termos: `
     <h2>Terms of Service</h2>
     <p>By using the services of <strong>Haon Technologies</strong>, you agree to our terms of use and conditions.
@@ -212,30 +212,155 @@ document.addEventListener("DOMContentLoaded", () => {
     abrirModal(conteudo.contrato);
   });
 
-function abrirModal(texto) {
-  modalText.innerHTML = texto;
-  modal.style.display = "flex";
-}
-
-function fecharModal() {
-  modal.style.display = "none";
-}
-
-closeModal.onclick = fecharModal;
-
-window.onclick = (event) => {
-  if (event.target === modal) {
-    fecharModal();
+  function abrirModal(texto) {
+    modalText.innerHTML = texto;
+    modal.style.display = "flex";
   }
-};
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    fecharModal();
+  function fecharModal() {
+    modal.style.display = "none";
   }
- });
+
+  closeModal.onclick = fecharModal;
+
+  window.onclick = (event) => {
+    if (event.target === modal) {
+      fecharModal();
+    }
+  };
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      fecharModal();
+    }
+  });
 })
 
 haongroup.addEventListener('click', () => {
-    window.open('https://haongroup.netlify.app/', '_blank');
+  window.open('https://haongroup.netlify.app/', '_blank');
+});
+
+const translations = {
+  en: {
+    nav_home: "Home",
+    nav_about: "About",
+    nav_services: "Services",
+    nav_how: "How We Work",
+    nav_portfolio: "Portfolio",
+
+    hero_title: "Turning Ideas into Technology",
+    hero_text: "At Haon Technologies, we combine creativity and technical expertise to build digital solutions that inspire, connect, and drive real results.",
+    learn_more: "Learn More",
+
+    about_title: "About Us",
+    about_text: "Haon Technologies was created to bring together innovation, design, and engineering. We develop digital solutions that combine aesthetics, performance, and strategy — helping businesses grow with modern and efficient technology.",
+
+    services_title: "What We Do",
+
+    service_design: "Digital Design",
+    service_design_desc: "We create visual identities and user experiences that are modern, intuitive, and impactful.",
+
+    service_web: "Web Development",
+    service_web_desc: "Custom-built websites focused on performance, responsiveness, and scalability.",
+
+    service_pc: "PC Assembly & Maintenance",
+    service_pc_desc: "High-performance setups, maintenance, and optimization tailored to your needs.",
+
+    service_discord: "Discord Bots & Websites",
+    service_discord_desc: "Automation tools and custom systems to manage and enhance your community.",
+
+    how_title: "How We Work",
+    how_text: "Our process combines strategy, design, and engineering to deliver high-quality digital solutions. Every project is carefully planned to ensure performance, usability, and long-term scalability.",
+
+    portfolio_title: "Portfolio",
+    portfolio_text: "Explore some of our projects, where creativity meets technology to deliver impactful results.",
+
+    filter_all: "All",
+    filter_technical: "Technical",
+
+    sales_support: "Sales Support",
+    technical_support: "Technical Support",
+    project_support: "Project Support"
+  },
+
+  pt: {
+    nav_home: "Início",
+    nav_about: "Sobre",
+    nav_services: "Serviços",
+    nav_how: "Como Trabalhamos",
+    nav_portfolio: "Portfólio",
+
+    hero_title: "Transformando ideias em tecnologia",
+    hero_text: "Na Haon Technologies, unimos criatividade e expertise técnica para desenvolver soluções digitais que inspiram, conectam e geram resultados reais.",
+    learn_more: "Saiba mais",
+
+    about_title: "Sobre nós",
+    about_text: "A Haon Technologies nasceu com o propósito de unir inovação, design e engenharia. Desenvolvemos soluções digitais que combinam estética, performance e estratégia — ajudando empresas a crescer com tecnologia moderna e eficiente.",
+
+    services_title: "O que fazemos",
+
+    service_design: "Design Digital",
+    service_design_desc: "Criamos identidades visuais e experiências modernas, intuitivas e impactantes.",
+
+    service_web: "Desenvolvimento Web",
+    service_web_desc: "Sites personalizados com foco em performance, responsividade e escalabilidade.",
+
+    service_pc: "Montagem e Manutenção de PCs",
+    service_pc_desc: "Soluções de alto desempenho, manutenção e otimização sob medida.",
+
+    service_discord: "Bots e Sites para Discord",
+    service_discord_desc: "Automação e sistemas personalizados para gerenciar e potencializar comunidades.",
+
+    how_title: "Como trabalhamos",
+    how_text: "Nosso processo combina estratégia, design e engenharia para entregar soluções digitais de alta qualidade. Cada projeto é planejado para garantir performance, usabilidade e escalabilidade a longo prazo.",
+
+    portfolio_title: "Portfólio",
+    portfolio_text: "Conheça alguns dos nossos projetos, onde criatividade e tecnologia se encontram para gerar resultados reais.",
+
+    filter_all: "Todos",
+    filter_technical: "Técnico",
+
+    sales_support: "Atendimento Comercial",
+    technical_support: "Suporte Técnico",
+    project_support: "Suporte de Projetos"
+  }
+};
+
+function setLanguage(lang) {
+  localStorage.setItem("lang", lang);
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (translations[lang][key]) {
+      el.innerText = translations[lang][key];
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const browserLang = navigator.language.startsWith("pt") ? "pt" : "en";
+  const savedLang = localStorage.getItem("lang") || browserLang;
+  setLanguage(savedLang);
+
+  document.querySelectorAll('.lang-switch button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  document.querySelector(`.lang-switch button[onclick="setLanguage('${lang}')"]`)
+    ?.classList.add('active');
+});
+
+const langBtn = document.getElementById("langBtn");
+const langMenu = document.getElementById("langMenu");
+
+langBtn.addEventListener("click", () => {
+  langMenu.style.display =
+    langMenu.style.display === "block" ? "none" : "block";
+});
+
+// fecha ao clicar fora
+document.addEventListener("click", (e) => {
+  if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
+    langMenu.style.display = "none";
+  }
 });

@@ -804,3 +804,61 @@ nav a.active {
   font-weight: 600;
   text-decoration: underline;
 }
+
+/* ------------------------------
+   LANG DROPDOWN PREMIUM
+--------------------------------*/
+.lang-dropdown {
+  position: relative;
+}
+
+#langBtn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--accent);
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+#langBtn:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(240,204,110,0.3);
+}
+
+/* menu */
+.lang-menu {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  min-width: 160px;
+  display: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+  z-index: 2000;
+}
+
+/* itens */
+.lang-menu div {
+  padding: 10px 15px;
+  cursor: pointer;
+  color: var(--text);
+  transition: all 0.25s ease;
+}
+
+.lang-menu div:hover {
+  background: linear-gradient(45deg, var(--accent), var(--accent-hover));
+  color: #000;
+}
+
+.lang-menu img {
+  width: 18px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
