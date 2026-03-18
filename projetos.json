@@ -15,20 +15,6 @@
   },
   {
     "categoria": "Web",
-    "id": "trucks-registers",
-    "titulo": "Registros de veiculos",
-    "descricao": "Truck Registry System – A web app for managing truck entries, exits, and load tracking in real time.",
-    "technologies": ["HTML5", "CSS3", "JavaScript", "Netlify", "mongodb"],
-    "imagem": "https://media.discordapp.net/attachments/1430562328700784744/1482477432467361977/Screenshot_1.png?ex=69b91272&is=69b7c0f2&hm=92d44e336d7a42d65882964319fae6fd858e96bb97c781b00d366e2884b38218&=&format=webp&quality=lossless&width=966&height=544",
-    "client": "SPE Aroeiras",
-    "year": 2026,
-    "category": "Website comercial",
-    "link": null,
-    "author": "Haon technologies",
-    "color": "#c0392b"
-  },
-    {
-    "categoria": "Web",
     "id": "barberhoffman",
     "titulo": "Barbearia Hoffmann",
     "descricao": "A fully responsive landing page for Hoffmann's barbershop.",
