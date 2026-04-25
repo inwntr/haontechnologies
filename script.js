@@ -98,13 +98,19 @@ document.addEventListener("DOMContentLoaded", async () => {
           card.classList.add("projeto-card");
           card.style.animationDelay = `${index * 0.2}s`;
           card.innerHTML = `
-            <img src="${p.imagem}" alt="${p.titulo}">
-            <div class="projeto-info">
-              <h3>${p.titulo}</h3>
-              <p>${p.descricao}</p>
-              <a href="${p.link}" target="_blank">View Project↗</a>
-            </div>
-          `;
+  <img src="${p.imagem}" alt="${p.titulo}">
+  <div class="projeto-info">
+    <span class="project-type">${p.tipo}</span>
+    <h3>${p.titulo}</h3>
+    <p>${p.descricao}</p>
+
+    <div class="project-tags">
+      ${p.stack.map(tag => `<span>${tag}</span>`).join("")}
+    </div>
+
+    <a href="${p.link}" target="_blank">View Project ↗</a>
+  </div>
+`;
           grid.appendChild(card);
 
           // efeito de brilho dentro do render
@@ -141,8 +147,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 const logo = document.querySelector('.logo-img')
 logo.addEventListener('click', () => {
-  window.location.href = '/'
-})
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
 
 const hero = document.querySelector('.hero');
 window.addEventListener('scroll', () => {
@@ -175,41 +184,71 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalText = document.getElementById("modalText");
   const closeModal = document.querySelector(".close");
 
-  const conteudo = {
-    termos: `
-    <h2>Terms of Service</h2>
-    <p>By using the services of <strong>Haon Technologies</strong>, you agree to our terms of use and conditions.
-    All projects are carefully planned, executed within defined timelines, and aligned with the agreed-upon scope with the client, ensuring quality, efficiency, and measurable results.</p>
-    <p>Any misuse of materials, software, designs, or content provided by Haon is strictly prohibited and subject to current copyright and intellectual property laws, including potential legal penalties.</p>
-    <p>Our commitment is to deliver services with excellence, maintaining transparency, security, and accountability at every stage of the project.</p>
-  `,
-    privacidade: `
-    <h2>Privacy Policy</h2>
-    <p><strong>Haon Technologies</strong> values your privacy and rigorously protects all data collected through forms, emails, or any contact channels. This information is used exclusively for business purposes, support, direct communication, and continuous improvement of our services.</p>
-    <p>We do not share personal data with third parties without the user's explicit consent, except when required by law or to ensure proper execution of contracted services.</p>
-    <p>We adopt technical and administrative measures to protect your information against unauthorized access, loss, alteration, or improper disclosure, ensuring every interaction with Haon is secure and trustworthy.</p>
-  `,
-    contrato: `
-    <h2>Contract Clauses</h2>
-    <p>All contracts entered into with <strong>Haon Technologies</strong> follow technical, legal, and ethical standards, ensuring the security, confidentiality, and integrity of all information shared during project development.</p>
-    <p>All parties involved commit to clear communication, active collaboration, and transparency throughout all phases of the project, from planning to final delivery, ensuring expectations and deadlines are met with excellence.</p>
-    <p>The contract defines responsibilities, rights, and duties of each party, ensuring that all provided solutions are delivered professionally, securely, and in line with the highest quality standards.</p>
-  `
+  const legalContent = {
+    en: {
+      termos: `
+      <h2>Terms of Service</h2>
+      <p>By using the services provided by <strong>Haon Technologies</strong>, the client agrees that each project will be developed according to the scope, deadlines, and conditions previously defined between both parties.</p>
+      <p>All materials, designs, systems, code, and digital assets delivered by Haon Technologies are protected by intellectual property rights and may not be copied, resold, modified, or redistributed without prior authorization.</p>
+      <p>Haon Technologies is committed to professional execution, clear communication, and responsible delivery throughout every stage of the project.</p>
+    `,
+
+      privacidade: `
+      <h2>Privacy Policy</h2>
+      <p><strong>Haon Technologies</strong> respects the privacy of its clients and visitors. Information collected through contact channels, forms, emails, or project communication is used only for service execution, support, business communication, and internal improvement.</p>
+      <p>Personal information is not sold, shared, or disclosed to third parties without consent, except when required by law or necessary for the execution of contracted services.</p>
+      <p>Reasonable technical and administrative measures are applied to protect information against unauthorized access, loss, misuse, or improper disclosure.</p>
+    `,
+
+      contrato: `
+      <h2>Contract Clauses</h2>
+      <p>Projects developed by <strong>Haon Technologies</strong> follow a defined scope, agreed deadlines, and clear responsibilities between the client and the company.</p>
+      <p>Both parties are expected to maintain transparent communication, provide necessary information on time, and collaborate throughout the planning, development, review, and delivery stages.</p>
+      <p>Final terms, payment conditions, maintenance, revisions, usage rights, and delivery responsibilities may vary according to each project and must be formally agreed before execution.</p>
+    `
+    },
+
+    pt: {
+      termos: `
+      <h2>Termos de Serviço</h2>
+      <p>Ao utilizar os serviços prestados pela <strong>Haon Technologies</strong>, o cliente concorda que cada projeto será desenvolvido de acordo com o escopo, prazos e condições previamente definidos entre as partes.</p>
+      <p>Todos os materiais, designs, sistemas, códigos e ativos digitais entregues pela Haon Technologies são protegidos por direitos de propriedade intelectual e não podem ser copiados, revendidos, modificados ou redistribuídos sem autorização prévia.</p>
+      <p>A Haon Technologies se compromete com execução profissional, comunicação clara e entrega responsável durante todas as etapas do projeto.</p>
+    `,
+
+      privacidade: `
+      <h2>Política de Privacidade</h2>
+      <p>A <strong>Haon Technologies</strong> respeita a privacidade de seus clientes e visitantes. Informações coletadas por canais de contato, formulários, e-mails ou comunicações de projeto são utilizadas apenas para execução de serviços, suporte, comunicação comercial e melhoria interna.</p>
+      <p>Informações pessoais não são vendidas, compartilhadas ou divulgadas a terceiros sem consentimento, exceto quando exigido por lei ou necessário para a execução dos serviços contratados.</p>
+      <p>Medidas técnicas e administrativas razoáveis são aplicadas para proteger as informações contra acesso não autorizado, perda, uso indevido ou divulgação inadequada.</p>
+    `,
+
+      contrato: `
+      <h2>Cláusulas Contratuais</h2>
+      <p>Os projetos desenvolvidos pela <strong>Haon Technologies</strong> seguem um escopo definido, prazos acordados e responsabilidades claras entre o cliente e a empresa.</p>
+      <p>Ambas as partes devem manter comunicação transparente, fornecer as informações necessárias dentro dos prazos e colaborar durante as etapas de planejamento, desenvolvimento, revisão e entrega.</p>
+      <p>Termos finais, condições de pagamento, manutenção, revisões, direitos de uso e responsabilidades de entrega podem variar conforme cada projeto e devem ser formalmente acordados antes da execução.</p>
+    `
+    }
   };
+
+  function getCurrentLang() {
+    return localStorage.getItem("lang") || "en";
+  }
 
   document.getElementById("termosLink").addEventListener("click", (e) => {
     e.preventDefault();
-    abrirModal(conteudo.termos);
+    abrirModal(legalContent[getCurrentLang()].termos);
   });
 
   document.getElementById("privacidadeLink").addEventListener("click", (e) => {
     e.preventDefault();
-    abrirModal(conteudo.privacidade);
+    abrirModal(legalContent[getCurrentLang()].privacidade);
   });
 
   document.getElementById("contratoLink").addEventListener("click", (e) => {
     e.preventDefault();
-    abrirModal(conteudo.contrato);
+    abrirModal(legalContent[getCurrentLang()].contrato);
   });
 
   function abrirModal(texto) {
@@ -248,39 +287,44 @@ const translations = {
     nav_how: "How We Work",
     nav_portfolio: "Portfolio",
 
-    hero_title: "Turning Ideas into Technology",
-    hero_text: "At Haon Technologies, we combine creativity and technical expertise to build digital solutions that inspire, connect, and drive real results.",
+    hero_title: "Digital systems built with precision, performance, and clarity.",
+    hero_text: "Haon Technologies builds websites, systems, and digital solutions designed to help businesses operate with more clarity, efficiency, and long-term reliability.",
     learn_more: "Learn More",
 
     about_title: "About Us",
-    about_text: "Haon Technologies was created to bring together innovation, design, and engineering. We develop digital solutions that combine aesthetics, performance, and strategy — helping businesses grow with modern and efficient technology.",
+    about_text: "Haon Technologies develops digital systems, websites, and technical solutions built to improve business operations, strengthen digital presence, and support long-term growth.",
 
     services_title: "What We Do",
 
-    service_design: "Digital Design",
-    service_design_desc: "We create visual identities and user experiences that are modern, intuitive, and impactful.",
+    service_design: "Interface & Brand Design",
+    service_design_desc: "Digital interfaces and visual systems designed for clarity, consistency, and user experience.",
 
-    service_web: "Web Development",
-    service_web_desc: "Custom-built websites focused on performance, responsiveness, and scalability.",
+    service_web: "Websites & Digital Platforms",
+    service_web_desc: "Responsive websites and digital platforms built for performance, scalability, and modern business needs.",
 
-    service_pc: "PC Assembly & Maintenance",
-    service_pc_desc: "High-performance setups, maintenance, and optimization tailored to your needs.",
-
-    service_discord: "Discord Bots & Websites",
-    service_discord_desc: "Automation tools and custom systems to manage and enhance your community.",
+    service_discord: "Automation & Custom Systems",
+    service_discord_desc: "Custom automation tools and operational systems built to optimize workflows and digital communities.",
 
     how_title: "How We Work",
-    how_text: "Our process combines strategy, design, and engineering to deliver high-quality digital solutions. Every project is carefully planned to ensure performance, usability, and long-term scalability.",
+    how_text: "Every project follows a structured process built around strategy, execution, and delivery — ensuring technical clarity, efficient development, and reliable results.",
 
-    portfolio_title: "Portfolio",
-    portfolio_text: "Explore some of our projects, where creativity meets technology to deliver impactful results.",
+    portfolio_title: "Selected Work",
+    portfolio_text: "A curated selection of projects that demonstrate our work across websites, systems, automation, and digital execution.",
+    view_full_portfolio: "View Full Portfolio",
 
     filter_all: "All",
     filter_technical: "Technical",
 
-    sales_support: "Sales Support",
-    technical_support: "Technical Support",
-    project_support: "Project Support"
+    sales_support: "Sales",
+    technical_support: "Support",
+    project_support: "Projects",
+
+    legal_title: "Legal",
+    legal_terms: "Terms of Service",
+    legal_privacy: "Privacy Policy",
+    legal_contract: "Contract Clauses",
+
+    footer_rights: "All rights reserved.",
   },
 
   pt: {
@@ -290,39 +334,44 @@ const translations = {
     nav_how: "Como Trabalhamos",
     nav_portfolio: "Portfólio",
 
-    hero_title: "Transformando ideias em tecnologia",
-    hero_text: "Na Haon Technologies, unimos criatividade e expertise técnica para desenvolver soluções digitais que inspiram, conectam e geram resultados reais.",
+    hero_title: "Sistemas digitais construídos com precisão, performance e clareza.",
+    hero_text: "A Haon Technologies desenvolve websites, sistemas e soluções digitais projetadas para ajudar empresas a operar com mais clareza, eficiência e confiabilidade a longo prazo.",
     learn_more: "Saiba mais",
 
-    about_title: "Sobre nós",
-    about_text: "A Haon Technologies nasceu com o propósito de unir inovação, design e engenharia. Desenvolvemos soluções digitais que combinam estética, performance e estratégia — ajudando empresas a crescer com tecnologia moderna e eficiente.",
+    about_title: "Sobre Nós",
+    about_text: "A Haon Technologies desenvolve sistemas digitais, websites e soluções técnicas criadas para melhorar operações, fortalecer presença digital e sustentar crescimento a longo prazo.",
 
-    services_title: "O que fazemos",
+    services_title: "O Que Fazemos",
 
-    service_design: "Design Digital",
-    service_design_desc: "Criamos identidades visuais e experiências modernas, intuitivas e impactantes.",
+    service_design: "Interface & Design de Marca",
+    service_design_desc: "Interfaces digitais e sistemas visuais desenvolvidos para clareza, consistência e experiência do usuário.",
 
-    service_web: "Desenvolvimento Web",
-    service_web_desc: "Sites personalizados com foco em performance, responsividade e escalabilidade.",
+    service_web: "Websites & Plataformas Digitais",
+    service_web_desc: "Websites responsivos e plataformas digitais criados para performance, escalabilidade e demandas modernas de negócios.",
 
-    service_pc: "Montagem e Manutenção de PCs",
-    service_pc_desc: "Soluções de alto desempenho, manutenção e otimização sob medida.",
+    service_discord: "Automação & Sistemas Personalizados",
+    service_discord_desc: "Ferramentas de automação e sistemas operacionais personalizados criados para otimizar fluxos e comunidades digitais.",
 
-    service_discord: "Bots e Sites para Discord",
-    service_discord_desc: "Automação e sistemas personalizados para gerenciar e potencializar comunidades.",
+    how_title: "Como Trabalhamos",
+    how_text: "Cada projeto segue um processo estruturado baseado em estratégia, execução e entrega — garantindo clareza técnica, desenvolvimento eficiente e resultados confiáveis.",
 
-    how_title: "Como trabalhamos",
-    how_text: "Nosso processo combina estratégia, design e engenharia para entregar soluções digitais de alta qualidade. Cada projeto é planejado para garantir performance, usabilidade e escalabilidade a longo prazo.",
-
-    portfolio_title: "Portfólio",
-    portfolio_text: "Conheça alguns dos nossos projetos, onde criatividade e tecnologia se encontram para gerar resultados reais.",
+    portfolio_title: "Projetos Selecionados",
+    portfolio_text: "Uma seleção de projetos que demonstram nossa atuação em websites, sistemas, automação e execução digital.",
+    view_full_portfolio: "Ver Portfólio Completo",
 
     filter_all: "Todos",
     filter_technical: "Técnico",
 
-    sales_support: "Atendimento Comercial",
-    technical_support: "Suporte Técnico",
-    project_support: "Suporte de Projetos"
+    sales_support: "Comercial",
+    technical_support: "Suporte",
+    project_support: "Projetos",
+
+    legal_title: "Legal",
+    legal_terms: "Termos de Serviço",
+    legal_privacy: "Política de Privacidade",
+    legal_contract: "Cláusulas Contratuais",
+
+    footer_rights: "Todos os direitos reservados.",
   }
 };
 
@@ -364,3 +413,37 @@ document.addEventListener("click", (e) => {
     langMenu.style.display = "none";
   }
 });
+
+function renderizar(categoria = "Todos") {
+  grid.innerHTML = "";
+
+  const filtrados = categoria === "Todos"
+    ? projetos
+    : projetos.filter(p => p.categoria === categoria);
+
+  const selecionados = filtrados.slice(0, 6);
+
+  selecionados.forEach((p, index) => {
+    const card = document.createElement("div");
+    card.classList.add("projeto-card");
+    card.style.animationDelay = `${index * 0.2}s`;
+
+    card.innerHTML = `
+      <img src="${p.imagem}" alt="${p.titulo}">
+      <div class="projeto-info">
+        <span class="project-type">${p.tipo}</span>
+        <h3>${p.titulo}</h3>
+        <p>${p.descricao}</p>
+
+        <div class="project-tags">
+          ${p.stack.map(tag => `<span>${tag}</span>`).join("")}
+        </div>
+
+        <a href="${p.link}" target="_blank">View Project ↗</a>
+      </div>
+    `;
+
+    grid.appendChild(card);
+  });
+}
+

@@ -1,30 +1,26 @@
 [
   {
-    "categoria": "Web",
+    "categoria": "Websites",
     "id": "forno-do-bairro",
     "titulo": "Forno do Bairro",
-    "descricao": "A modern, responsive website for Forno do Bairro, featuring an interactive menu generated with JavaScript, an ordering system integrated with WhatsApp, and SEO optimization. The design emphasizes the artisanal flavors and local identity of the pizzeria.",
-    "technologies": ["HTML5", "CSS3", "JavaScript", "Netlify"],
+    "tipo": "Commercial Website",
+    "descricao": "A responsive commercial website built for a local pizzeria, featuring an interactive menu, WhatsApp ordering flow, and SEO-focused structure.",
     "imagem": "https://pizzariadodh.com.br/favicon.png",
+    "stack": ["HTML5", "CSS3", "JavaScript", "Netlify"],
     "client": "Forno do Bairro",
     "year": 2025,
-    "category": "Website comercial",
-    "link": "https://pizzariadodh.com.br/",
-    "author": "Haon technologies",
-    "color": "#c0392b"
+    "link": "https://pizzariadodh.com.br/"
   },
   {
-    "categoria": "Web",
+    "categoria": "Websites",
     "id": "barberhoffman",
     "titulo": "Barbearia Hoffmann",
-    "descricao": "A fully responsive landing page for Hoffmann's barbershop.",
-    "technologies": ["HTML5", "SCSS", "JavaScript", "Netlify"],
+    "tipo": "Landing Page",
+    "descricao": "A responsive landing page designed to present the barbershop, strengthen its local presence, and guide visitors toward direct contact.",
     "imagem": "https://barbeariahoffmann.netlify.app/assets/hoffman.png",
-    "client": "Barber Hoffman",
+    "stack": ["HTML5", "SCSS", "JavaScript", "Netlify"],
+    "client": "Barbearia Hoffmann",
     "year": 2026,
-    "category": "Website comercial",
-    "link": "https://barbeariahoffmann.netlify.app",
-    "author": "Haon technologies",
-    "color": "#c0392b"
+    "link": "https://barbeariahoffmann.netlify.app"
   }
 ]
