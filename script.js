@@ -161,7 +161,6 @@ if (hero) {
     hero.style.backgroundPositionY = `${scroll * 0.3}px`;
   });
 }
-});
 
 const cards = document.querySelectorAll('.card');
 cards.forEach((card, index) => {
