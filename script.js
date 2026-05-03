@@ -154,9 +154,13 @@ logo.addEventListener('click', () => {
 });
 
 const hero = document.querySelector('.hero');
-window.addEventListener('scroll', () => {
-  const scroll = window.scrollY;
-  hero.style.backgroundPositionY = `${scroll * 0.3}px`;
+
+if (hero) {
+  window.addEventListener('scroll', () => {
+    const scroll = window.scrollY;
+    hero.style.backgroundPositionY = `${scroll * 0.3}px`;
+  });
+}
 });
 
 const cards = document.querySelectorAll('.card');
