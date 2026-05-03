@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Haon Technologies — Project Archive</title>
+
+  <meta name="description" content="Selected projects and technical work developed by Haon Technologies." />
+
+  <meta name="keywords" content="Haon Technologies, Portfolio, Web Development, Systems, Automation, Design" />
+
+  <meta name="author" content="Haon Technologies" />
+  <link rel="icon" href="imgs/icon.png" type="image/png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="imgs/favicon.png" class="logo-img" alt="Haon Technologies">
+    </div>
+
+    <nav class="nav-links">
+      <ul>
+        <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+        <li><a href="index.html#sobre" data-i18n="nav_about">About</a></li>
+        <li><a href="index.html#servicos" data-i18n="nav_services">Services</a></li>
+        <li><a href="index.html#como" data-i18n="nav_how">How We Work</a></li>
+        <li><a class="active" href="index.html#projects" data-i18n="nav_portfolio">Projects</a></li>
+      </ul>
+    </nav>
+
+    <div class="lang-dropdown">
+      <button id="langBtn">🌐</button>
+
+      <div class="lang-menu" id="langMenu">
+        <div onclick="setLanguage('en')">
+          <img src="imgs/us.png" alt="EN"> English
+        </div>
+
+        <div onclick="setLanguage('pt')">
+          <img src="imgs/br.webp" alt="PT"> Português
+        </div>
+      </div>
+    </div>
+
+    <button class="menu-toggle">☰</button>
+  </header>
+
+  <section class="section" style="padding-top: 150px;">
+    <h2 data-i18n="portfolio_archive_title">Project Archive</h2>
+
+    <p data-i18n="portfolio_archive_text">
+      A complete archive of selected projects developed across web systems,
+      digital platforms, automation, and interface design.
+    </p>
+
+    <div class="filtros">
+      <button class="filtro ativo" data-cat="Todos" data-i18n="filter_all">All</button>
+      <button class="filtro" data-cat="Websites">Websites</button>
+      <button class="filtro" data-cat="Systems">Systems</button>
+      <button class="filtro" data-cat="Automation">Automation</button>
+      <button class="filtro" data-cat="Design">Design</button>
+    </div>
+
+    <div class="portfolio-grid" id="portfolioGrid"></div>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3 data-i18n="sales_support">Sales</h3>
+        <a href="https://wa.me/5599999999999" target="_blank">WhatsApp</a><br>
+        <a href="mailto:contato@haontechnologies.com.br">contato@haontechnologies.com.br</a>
+      </div>
+
+      <div class="footer-section">
+        <h3 data-i18n="technical_support">Support</h3>
+        <a href="https://haontechnologies.com.br/suporte" target="_blank">haontechnologies.com.br/support</a>
+      </div>
+
+      <div class="footer-section">
+        <h3 data-i18n="project_support">Projects</h3>
+        <a href="mailto:projetos@haontechnologies.com.br">projects@haontechnologies.com.br</a>
+      </div>
+
+      <div class="footer-section">
+        <h3 data-i18n="legal_title">Legal</h3>
+        <a href="javascript:void(0)" id="termosLink" data-i18n="legal_terms">Terms of Service</a>
+        <a href="javascript:void(0)" id="privacidadeLink" data-i18n="legal_privacy">Privacy Policy</a>
+        <a href="javascript:void(0)" id="contratoLink" data-i18n="legal_contract">Contract Clauses</a>
+      </div>
+    </div>
+
+    <p class="footer-bottom">
+      Haon Technologies © 2026 |
+      <span class="haongroup">
+        <a href="https://haongroup.netlify.app" target="_blank" rel="noopener noreferrer">Haon Group</a>
+      </span>. <span data-i18n="footer_rights">All rights reserved.</span>
+      <img src="imgs/haongroup.png" alt="Haon Group" class="footer-icon" id="haongroupimg">
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

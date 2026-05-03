@@ -13,7 +13,7 @@ const sectionsTitles = [
   { id: 'sobre', title: 'Haon – About' },
   { id: 'servicos', title: 'Haon – Services' },
   { id: 'como', title: 'Haon – How We Work' },
-  { id: 'portfolio', title: 'Haon – Portfólio' }
+  { id: 'projects', title: 'Haon – Projects' }
 ];
 
 const header = document.querySelector('header');
@@ -82,66 +82,66 @@ document.addEventListener("DOMContentLoaded", async () => {
   const grid = document.getElementById("portfolioGrid");
   const filtros = document.querySelectorAll(".filtro");
 
-  if (grid) {
-    try {
-      const res = await fetch("/projetos.json");
-      const projetos = await res.json();
+  if (!grid) return;
 
-      function renderizar(categoria = "Todos") {
-        grid.innerHTML = "";
-        const filtrados = categoria === "Todos"
+  try {
+    const res = await fetch("/projetos.json");
+    const projetos = await res.json();
+
+    const isPortfolioPage = window.location.pathname.includes("projects.html");
+
+    function renderizar(categoria = "Todos") {
+      grid.innerHTML = "";
+
+      let lista;
+
+      if (isPortfolioPage) {
+        lista = categoria === "Todos"
           ? projetos
           : projetos.filter(p => p.categoria === categoria);
-
-        filtrados.forEach((p, index) => {
-          const card = document.createElement("div");
-          card.classList.add("projeto-card");
-          card.style.animationDelay = `${index * 0.2}s`;
-          card.innerHTML = `
-  <img src="${p.imagem}" alt="${p.titulo}">
-  <div class="projeto-info">
-    <span class="project-type">${p.tipo}</span>
-    <h3>${p.titulo}</h3>
-    <p>${p.descricao}</p>
-
-    <div class="project-tags">
-      ${p.stack.map(tag => `<span>${tag}</span>`).join("")}
-    </div>
-
-    <a href="${p.link}" target="_blank">View Project ↗</a>
-  </div>
-`;
-          grid.appendChild(card);
-
-          // efeito de brilho dentro do render
-          card.addEventListener('mousemove', e => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            card.style.setProperty('--x', `${x}px`);
-            card.style.setProperty('--y', `${y}px`);
-          });
-          card.addEventListener('mouseleave', () => {
-            card.style.setProperty('--x', `50%`);
-            card.style.setProperty('--y', `50%`);
-          });
-        });
+      } else {
+        lista = projetos.filter(p => p.destaque === true);
       }
 
-      renderizar();
+      lista.forEach((p, index) => {
+        const card = document.createElement("div");
+        card.classList.add("projeto-card");
+        card.style.animationDelay = `${index * 0.2}s`;
 
+        card.innerHTML = `
+          <img src="${p.imagem}" alt="${p.titulo}">
+          <div class="projeto-info">
+            <span class="project-type">${p.tipo}</span>
+            <h3>${p.titulo}</h3>
+            <p>${p.descricao}</p>
+
+            <div class="project-tags">
+              ${p.stack.map(tag => `<span>${tag}</span>`).join("")}
+            </div>
+
+            <a href="${p.link}" target="_blank">View Project ↗</a>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    renderizar();
+
+    if (isPortfolioPage) {
       filtros.forEach(btn => {
         btn.addEventListener("click", () => {
           filtros.forEach(f => f.classList.remove("ativo"));
           btn.classList.add("ativo");
           renderizar(btn.dataset.cat);
-          grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          grid.scrollIntoView({ behavior: "smooth", block: "start" });
         });
       });
-
-    } catch (err) {
-      grid.innerHTML = "<p>Erro ao carregar portfólio 😢</p>";
     }
+
+  } catch (err) {
+    grid.innerHTML = "<p>Erro ao carregar portfólio 😢</p>";
   }
 });
 
@@ -285,7 +285,7 @@ const translations = {
     nav_about: "About",
     nav_services: "Services",
     nav_how: "How We Work",
-    nav_portfolio: "Portfolio",
+    nav_portfolio: "Projects",
 
     hero_title: "Digital systems built with precision, performance, and clarity.",
     hero_text: "Haon Technologies builds websites, systems, and digital solutions designed to help businesses operate with more clarity, efficiency, and long-term reliability.",
@@ -308,9 +308,12 @@ const translations = {
     how_title: "How We Work",
     how_text: "Every project follows a structured process built around strategy, execution, and delivery — ensuring technical clarity, efficient development, and reliable results.",
 
-    portfolio_title: "Selected Work",
+    portfolio_title: "Selected Projects",
     portfolio_text: "A curated selection of projects that demonstrate our work across websites, systems, automation, and digital execution.",
-    view_full_portfolio: "View Full Portfolio",
+    view_full_portfolio: "View All Projects",
+
+    portfolio_archive_title: "Project Archive",
+    portfolio_archive_text: "A complete archive of selected projects developed across web systems, digital platforms, automation, and interface design.",
 
     filter_all: "All",
     filter_technical: "Technical",
@@ -332,7 +335,7 @@ const translations = {
     nav_about: "Sobre",
     nav_services: "Serviços",
     nav_how: "Como Trabalhamos",
-    nav_portfolio: "Portfólio",
+    nav_portfolio: "Projetos",
 
     hero_title: "Sistemas digitais construídos com precisão, performance e clareza.",
     hero_text: "A Haon Technologies desenvolve websites, sistemas e soluções digitais projetadas para ajudar empresas a operar com mais clareza, eficiência e confiabilidade a longo prazo.",
@@ -357,7 +360,10 @@ const translations = {
 
     portfolio_title: "Projetos Selecionados",
     portfolio_text: "Uma seleção de projetos que demonstram nossa atuação em websites, sistemas, automação e execução digital.",
-    view_full_portfolio: "Ver Portfólio Completo",
+    view_full_portfolio: "Ver todos os projetos",
+
+    portfolio_archive_title: "Arquivo de Projetos",
+    portfolio_archive_text: "Um arquivo completo de projetos selecionados desenvolvidos em sistemas web, plataformas digitais, automação e design de interface.",
 
     filter_all: "Todos",
     filter_technical: "Técnico",
@@ -395,55 +401,22 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.classList.remove('active');
   });
 
-  document.querySelector(`.lang-switch button[onclick="setLanguage('${lang}')"]`)
-    ?.classList.add('active');
+document.querySelector(`.lang-switch button[onclick="setLanguage('${savedLang}')"]`)
+  ?.classList.add('active');
 });
 
 const langBtn = document.getElementById("langBtn");
 const langMenu = document.getElementById("langMenu");
 
-langBtn.addEventListener("click", () => {
-  langMenu.style.display =
-    langMenu.style.display === "block" ? "none" : "block";
-});
-
-// fecha ao clicar fora
-document.addEventListener("click", (e) => {
-  if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
-    langMenu.style.display = "none";
-  }
-});
-
-function renderizar(categoria = "Todos") {
-  grid.innerHTML = "";
-
-  const filtrados = categoria === "Todos"
-    ? projetos
-    : projetos.filter(p => p.categoria === categoria);
-
-  const selecionados = filtrados.slice(0, 6);
-
-  selecionados.forEach((p, index) => {
-    const card = document.createElement("div");
-    card.classList.add("projeto-card");
-    card.style.animationDelay = `${index * 0.2}s`;
-
-    card.innerHTML = `
-      <img src="${p.imagem}" alt="${p.titulo}">
-      <div class="projeto-info">
-        <span class="project-type">${p.tipo}</span>
-        <h3>${p.titulo}</h3>
-        <p>${p.descricao}</p>
-
-        <div class="project-tags">
-          ${p.stack.map(tag => `<span>${tag}</span>`).join("")}
-        </div>
-
-        <a href="${p.link}" target="_blank">View Project ↗</a>
-      </div>
-    `;
-
-    grid.appendChild(card);
+if (langBtn && langMenu) {
+  langBtn.addEventListener("click", () => {
+    langMenu.style.display =
+      langMenu.style.display === "block" ? "none" : "block";
   });
-}
 
+  document.addEventListener("click", (e) => {
+    if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
+      langMenu.style.display = "none";
+    }
+  })
+}

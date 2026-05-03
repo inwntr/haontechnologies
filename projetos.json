@@ -4,12 +4,18 @@
     "id": "forno-do-bairro",
     "titulo": "Forno do Bairro",
     "tipo": "Commercial Website",
-    "descricao": "A responsive commercial website built for a local pizzeria, featuring an interactive menu, WhatsApp ordering flow, and SEO-focused structure.",
+    "descricao": "Designed to improve local visibility and streamline customer contact through WhatsApp ordering.",
     "imagem": "https://pizzariadodh.com.br/favicon.png",
-    "stack": ["HTML5", "CSS3", "JavaScript", "Netlify"],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Netlify"
+    ],
     "client": "Forno do Bairro",
     "year": 2025,
-    "link": "https://pizzariadodh.com.br/"
+    "link": "https://pizzariadodh.com.br/",
+    "destaque": false
   },
   {
     "categoria": "Websites",
@@ -18,9 +24,38 @@
     "tipo": "Landing Page",
     "descricao": "A responsive landing page designed to present the barbershop, strengthen its local presence, and guide visitors toward direct contact.",
     "imagem": "https://barbeariahoffmann.netlify.app/assets/hoffman.png",
-    "stack": ["HTML5", "SCSS", "JavaScript", "Netlify"],
+    "stack": [
+      "HTML5",
+      "SCSS",
+      "JavaScript",
+      "Netlify"
+    ],
     "client": "Barbearia Hoffmann",
     "year": 2026,
-    "link": "https://barbeariahoffmann.netlify.app"
+    "link": "https://barbeariahoffmann.netlify.app",
+    "destaque": false
+  },
+  {
+    "categoria": "Systems",
+    "id": "myfinance",
+    "titulo": "My Finance",
+    "tipo": "Financial Management System",
+    "descricao": "Full-stack financial management system built for personal expense tracking, transaction control, reports and user account management.",
+    "imagem": "./imgs/login.png",
+    "stack": [
+      "React",
+      "Vite",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Prisma",
+      "JWT",
+      "PWA"
+    ],
+    "client": "Internal Product",
+    "year": 2026,
+    "link": "https://haonfinance.netlify.app/",
+    "destaque": true,
+    "principal": true
   }
 ]
