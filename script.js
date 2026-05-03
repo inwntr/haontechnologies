@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (!grid) return;
 
   try {
-    const res = await fetch("/projetos.json");
+    const res = await fetch("projetos.json");
     const projetos = await res.json();
 
     const isPortfolioPage = window.location.pathname.includes("projects.html");
@@ -145,13 +145,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-const logo = document.querySelector('.logo-img')
-logo.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
+const logo = document.querySelector('.logo-img');
+
+if (logo) {
+  logo.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
-});
+}
 
 const hero = document.querySelector('.hero');
 
@@ -186,6 +189,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("modal");
   const modalText = document.getElementById("modalText");
   const closeModal = document.querySelector(".close");
+
+  if (!modal || !modalText || !closeModal || !termosLink || !privacidadeLink || !contratoLink) {
+    return;
+  }
 
   const legalContent = {
     en: {
@@ -278,9 +285,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 })
 
-haongroup.addEventListener('click', () => {
-  window.open('https://haongroup.netlify.app/', '_blank');
-});
+if (haongroup) {
+  haongroup.addEventListener('click', () => {
+    window.open('https://haongroup.netlify.app/', '_blank');
+  });
+}
 
 const translations = {
   en: {
@@ -404,8 +413,8 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.classList.remove('active');
   });
 
-document.querySelector(`.lang-switch button[onclick="setLanguage('${savedLang}')"]`)
-  ?.classList.add('active');
+  document.querySelector(`.lang-switch button[onclick="setLanguage('${savedLang}')"]`)
+    ?.classList.add('active');
 });
 
 const langBtn = document.getElementById("langBtn");

@@ -41,7 +41,7 @@
     "titulo": "My Finance",
     "tipo": "Financial Management System",
     "descricao": "Full-stack financial management system built for personal expense tracking, transaction control, reports and user account management.",
-    "imagem": "./imgs/login.png",
+    "imagem": "imgs/login.png",
     "stack": [
       "React",
       "Vite",
