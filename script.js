@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const res = await fetch("projetos.json");
     const projetos = await res.json();
 
-    const isPortfolioPage = window.location.pathname.includes("projects.html");
+    const isPortfolioPage = document.body.dataset.page === "portfolio";
 
     function renderizar(categoria = "Todos") {
       grid.innerHTML = "";
