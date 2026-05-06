@@ -23,7 +23,7 @@
 
   --footer-bg: #0a0a0a;
   --footer-text: #fff;
-  --footer-link: #ffffff;
+  --footer-link: #fffed7;
   --footer-muted: #f0cc6e;
   --footer-accent: #fff;
 
@@ -349,8 +349,9 @@ header.scrolled nav a {
 /* ------------------------------
    LOGO
 --------------------------------*/
-.logo-img { max-height: 100%; width: 15%; display: block; cursor: pointer; }
-.img-logo { max-height: 100%; width: 40%; }
+.logo-img { max-height: 100%; width: 20%; display: block; cursor: pointer; }
+.img-logo { max-height: 100%; width: 40%; margin-bottom: 50px; }
+.img-logo1 { max-height: 100%; width: 10%; margin-bottom: 50px; }
 
 /* ------------------------------
    FOOTER
@@ -400,13 +401,14 @@ footer {
 
 .footer-icon {
   position: absolute;
-  right: 0;       /* canto inferior direito */
-  bottom: 0;
-  width: 15%;    /* ajusta o tamanho conforme necessário */
+  right: 20px;
+  bottom: 10px;
+  width: 7%;    /* ajusta o tamanho conforme necessário */
   height: auto;
   transform: translate(-10px, -5px); /* ajusta distância do canto */
-  opacity: 0.8;   /* leve transparência para ficar discreto */
+  opacity: 0.6;   /* leve transparência para ficar discreto */
   cursor: pointer;
+  filter: drop-shadow(0 0 6px rgba(240,204,110,0.12));
 }
 
 .footer-bottom span {
@@ -437,23 +439,6 @@ border-top:1px solid var(--accent);
   text-decoration: none;
   transition: color 0.3s;
   margin-bottom: 6px;
-}
-
-@media (max-width: 768px) {
-  .footer-bottom {
-    position: static; /* permite empilhar texto e imagem */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; /* espaço entre texto e imagem */
-  }
-
-  .footer-icon {
-    position: static; /* remove o absolute */
-    width: 130px; /* um pouco maior que no desktop */
-    transform: none; /* remove o translate */
-    opacity: 1; /* opcional, mais visível */
-  }
 }
 
 /* ------------------------------
@@ -652,57 +637,6 @@ body.dark .projeto-card { box-shadow: 0 4px 15px rgba(0,0,0,0.45); }
   box-shadow: 0 5px 25px rgba(0,0,0,0.5);
 }
 
-@media (max-width: 768px) {
-  header {
-    padding: 10px 20px;
-    height: auto; /* deixa a altura automática pra não cortar */
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; /* espaço entre logo e nav */
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .logo-img {
-    content: url('imgs/icon.png');
-    width: 60px;  /* maior e visível */
-    height: auto;
-    filter: drop-shadow(0 0 4px var(--accent));
-  }
-
-  nav ul {
-    flex-direction: column; /* menu vertical no mobile */
-    align-items: center;
-    gap: 10px;
-  }
-
-  nav a {
-    font-size: 1rem; /* ajusta o tamanho dos links */
-    text-align: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero {
-    height: auto;
-    min-height: 80vh; /* ocupa bastante tela sem cortar */
-    padding: 60px 15px;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-}
-
 .menu-toggle {
   display: none;
   font-size: 2rem;
@@ -737,81 +671,6 @@ body.dark .projeto-card { box-shadow: 0 4px 15px rgba(0,0,0,0.45); }
 /* Ativo (menu aberto) */
 .nav-links.mobile.active {
   right: 0;
-}
-
-/* HEADER MOBILE */
-@media (max-width: 768px) {
-  header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    height: 60px;
-    position: relative; /* importante para o menu absoluto */
-  }
-
-  .logo-img {
-    width: 60px;
-    height: auto;
-    filter: drop-shadow(0 0 4px var(--accent));
-  }
-
-  .menu-toggle {
-    display: block;
-    font-size: 2rem;
-    background: none;
-    border: none;
-    color: var(--accent);
-    cursor: pointer;
-    z-index: 1010; /* acima do menu */
-  }
-
-  /* menu responsivo */
-  .nav-links {
-    position: absolute; /* não empurra o conteúdo */
-    top: 100%; /* logo abaixo da header */
-    left: 0;
-    width: 100%; /* ocupa a largura da tela */
-    background: var(--bg2);
-    flex-direction: column;
-    display: none; /* escondido por padrão */
-    padding: 10px 0;
-    z-index: 1000;
-  }
-
-  .nav-links.active {
-    display: flex; /* mostra quando ativo */
-  }
-
-  .nav-links ul {
-    flex-direction: column;
-    gap: 15px;
-    padding: 0 20px;
-  }
-
-  .nav-links a {
-    font-size: 1.1rem;
-    display: block;
-    padding: 8px 0;
-    text-align: left;
-  }
-}
-
-@media (max-width: 768px) {
-  .sobre-container {
-    flex-direction: column; /* empilha imagem e texto */
-    gap: 20px; /* menos espaço entre eles */
-    padding: 0 5%;
-  }
-
-  .sobre-text, .sobre-img {
-    flex: 1 1 100%;
-    text-align: center;
-  }
-
-  .sobre-img img {
-    max-width: 90%; /* deixa margem lateral no mobile */
-  }
 }
 
 nav a.active {
@@ -907,4 +766,107 @@ nav a.active {
 .portfolio-btn {
   display: inline-block;
   margin-top: 40px;
+}
+
+/* HEADER MOBILE */
+@media (max-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 60px;
+    position: relative; /* importante para o menu absoluto */
+  }
+
+  .logo-img {
+    content: url('imgs/brasao.png');
+    width: 40px !important;
+    height: auto;
+    filter: drop-shadow(0 0 2px rgba(240, 204, 110, 0.35));
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
+    z-index: 1010; /* acima do menu */
+  }
+
+  /* menu responsivo */
+  .nav-links {
+    position: absolute; /* não empurra o conteúdo */
+    top: 100%; /* logo abaixo da header */
+    left: 0;
+    width: 100%; /* ocupa a largura da tela */
+    background: var(--bg2);
+    flex-direction: column;
+    display: none; /* escondido por padrão */
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: flex; /* mostra quando ativo */
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 20px;
+  }
+
+  .nav-links a {
+    font-size: 1.1rem;
+    display: block;
+    padding: 8px 0;
+    text-align: left;
+  }
+
+    .hero {
+    height: auto;
+    min-height: 80vh; /* ocupa bastante tela sem cortar */
+    padding: 60px 15px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .sobre-container {
+    flex-direction: column; /* empilha imagem e texto */
+    gap: 20px; /* menos espaço entre eles */
+    padding: 0 5%;
+  }
+
+  .sobre-text, .sobre-img {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  .sobre-img img {
+    max-width: 90%; /* deixa margem lateral no mobile */
+  }
+
+  .footer-bottom {
+    position: static; /* permite empilhar texto e imagem */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* espaço entre texto e imagem */
+  }
+
+  .footer-icon {
+    position: static; /* remove o absolute */
+    width: 130px; /* um pouco maior que no desktop */
+    transform: none; /* remove o translate */
+    opacity: 1; /* opcional, mais visível */
+  }
 }
