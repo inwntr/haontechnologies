@@ -419,7 +419,7 @@ footer {
 }
 
 .footer-bottom .haongroup a {
-  color: #fff;
+  color: #f7eb82;
   font-weight: bold;
   text-decoration: underline;
   cursor: pointer;
@@ -619,7 +619,7 @@ body.dark .projeto-card { box-shadow: 0 4px 15px rgba(0,0,0,0.45); }
   padding: 0 10%;  /* evita que toque nas bordas da tela */
 }
 
-.sobre-text {
+.sobre-texto {
   flex: 1 1 300px; /* ocupa mínimo 300px, mas pode crescer */
   color: var(--text);
 }
@@ -631,7 +631,7 @@ body.dark .projeto-card { box-shadow: 0 4px 15px rgba(0,0,0,0.45); }
 }
 
 .sobre-img img {
-  max-width: 100%; /* nunca ultrapassa a largura do container */
+  max-width: 60%; /* nunca ultrapassa a largura do container */
   height: auto;
   border-radius: 12px;
   box-shadow: 0 5px 25px rgba(0,0,0,0.5);
